@@ -15,32 +15,34 @@
         </div>
         <nav>
             <a href="index.html">Inicio</a>
+            <a href="proyecto.html">Proyecto</a>
             <a href="catalogo.html">Catálogo</a>
             <a href="manifiesto.html">Manifiesto</a>
             <a href="despacho.html" class="activo">Despacho AOG</a>
             <a href="bitacora.html">Bitácora</a>
             <a href="flota.html">Flota</a>
-            <a href="proyecto.html">Proyecto</a>
             <a href="contacto.html">Contacto</a>
         </nav>
     </header>
 
-    <main class="contenedor" style="max-width: 1200px;">
-        <h2>Despacho de Urgencia AOG</h2>
-        <p style="color: #64748b; margin-bottom: 1.5rem;">Equivalente funcional al checkout de una tienda online. Valida la matrícula de la aeronave y la puerta o hangar de destino; el "pago" es la autorización operativa del despacho.</p>
+    <main class="contenedor" style="max-width: 1100px;">
+        <div style="margin-bottom: 2rem;">
+            <h2>Despacho de Urgencia AOG</h2>
+            <p style="color: #64748b; margin-top: 5px;">Módulo de validación operativa y despacho de componentes aeronáuticos críticos hacia plataforma.</p>
+        </div>
 
-        <!-- Resumen del Manifiesto Activo -->
-        <div class="caja-formulario" style="background: #0f172a; color: white; border: 1px solid #1e293b;">
-            <h3 style="margin-bottom: 1rem; color: #38bdf8;">Manifiesto a despachar</h3>
-            <div class="contenedor-tabla" style="background: #1e293b;">
-                <table class="tabla-custom" style="color: white;">
+        <div class="seccion-oscura">
+            <h3 class="titulo-seccion">📦 Manifiesto de Carga Activo</h3>
+            <p class="subtitulo-seccion">Componentes listos para el despacho en rampa.</p>
+            <div style="overflow-x: auto;">
+                <table class="tabla-despacho">
                     <thead>
-                        <tr style="background: #0f172a; color: #94a3b8;">
-                            <th>P/N</th>
-                            <th>COMPONENTE</th>
-                            <th>CATEGORÍA</th>
-                            <th>BODEGA</th>
-                            <th>CANT.</th>
+                        <tr>
+                            <th>Part Number (P/N)</th>
+                            <th>Componente</th>
+                            <th>Categoría / ATA</th>
+                            <th>Bodega Origen</th>
+                            <th>Cantidad</th>
                         </tr>
                     </thead>
                     <tbody id="tabla-despacho-body">
@@ -50,18 +52,18 @@
             </div>
         </div>
 
-        <!-- Formulario de Autorización -->
-        <form id="form-despacho" class="caja-formulario" style="background: #0f172a; color: white; border: 1px solid #1e293b; margin-top: 1.5rem;">
-            <h3 style="color: #38bdf8; margin-bottom: 1rem;">Autorización de Despacho</h3>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                <div class="grupo-inputs" style="flex-direction: column;">
-                    <label style="color: #94a3b8; font-size: 0.85rem;">Matrícula de la Aeronave *</label>
-                    <input type="text" id="despacho-matricula" placeholder="Ej: CC-BFA" required style="background: #1e293b; color: white; border: 1px solid #334155;">
+        <form id="form-despacho" class="seccion-oscura">
+            <h3 class="titulo-seccion">✈️ Autorización Operativa de Despacho</h3>
+            <p class="subtitulo-seccion">Complete los datos de la aeronave y del ingeniero responsable para autorizar la salida.</p>
+
+            <div class="grid-2" style="margin-bottom: 1.5rem;">
+                <div>
+                    <label style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Matrícula de la Aeronave *</label>
+                    <input type="text" id="despacho-matricula" placeholder="Ej: CC-BFA" class="input-custom" required>
                 </div>
-                <div class="grupo-inputs" style="flex-direction: column;">
-                    <label style="color: #94a3b8; font-size: 0.85rem;">Puerta / Hangar de Destino *</label>
-                    <select id="despacho-destino" required style="background: #1e293b; color: white; border: 1px solid #334155; padding: 8px;">
+                <div>
+                    <label style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Puerta / Hangar de Destino *</label>
+                    <select id="despacho-destino" class="input-custom" required>
                         <option value="">Selecciona la ubicación...</option>
                         <option value="Puerta 9">Puerta 9</option>
                         <option value="Puerta 14">Puerta 14</option>
@@ -71,24 +73,27 @@
                 </div>
             </div>
 
-            <div style="margin-top: 1.5rem;">
-                <label style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Ingeniero Responsable *</label>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                    <input type="text" id="despacho-ingeniero" placeholder="Nombre y Apellido" required style="background: #1e293b; color: white; border: 1px solid #334155;">
-                    <input type="text" id="despacho-licencia" placeholder="Número de licencia (Ej: LE-3401)" required style="background: #1e293b; color: white; border: 1px solid #334155;">
+            <div class="grid-2" style="margin-bottom: 1.5rem;">
+                <div>
+                    <label style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Ingeniero Responsable *</label>
+                    <input type="text" id="despacho-ingeniero" placeholder="Nombre y Apellido" class="input-custom" required>
+                </div>
+                <div>
+                    <label style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Número de Licencia *</label>
+                    <input type="text" id="despacho-licencia" placeholder="Ej: LE-3401" class="input-custom" required>
                 </div>
             </div>
 
-            <div style="margin-top: 1.5rem;">
-                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: #cbd5e1;">
-                    <input type="checkbox" id="check-autorizacion" required style="width: 18px; height: 18px;">
-                    Declaro que la información es correcta y asumo la responsabilidad operativa del despacho AOG.
+            <div style="margin: 1.5rem 0; background: #1e293b; padding: 1rem; border-radius: 6px;">
+                <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; color: #cbd5e1; font-size: 0.9rem;">
+                    <input type="checkbox" id="check-autorizacion" required style="width: 18px; height: 18px; accent-color: #38bdf8;">
+                    Declaro que la información es correcta y asumo la responsabilidad técnica y operativa de este despacho AOG.
                 </label>
             </div>
 
-            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                <button type="button" class="btn-secundario" onclick="document.getElementById('form-despacho').reset()">Limpiar formulario</button>
-                <button type="submit" class="btn-principal" style="background: #ef4444; flex: 1;">Autorizar Despacho AOG</button>
+            <div style="display: flex; gap: 1rem; justify-content: flex-end; align-items: center;">
+                <button type="button" class="btn-secundario" onclick="document.getElementById('form-despacho').reset()">Limpiar campos</button>
+                <button type="submit" class="btn-autorizar">Autorizar Despacho AOG</button>
             </div>
         </form>
     </main>

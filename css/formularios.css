@@ -1,3 +1,83 @@
+.caja-formulario {
+    background: var(--blanco);
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+}
+
+.grupo-inputs {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+input, select, textarea {
+    padding: 8px;
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    flex: 1;
+    min-width: 200px;
+    font-size: 0.95rem;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+.btn-principal {
+    background-color: var(--acento);
+    color: var(--blanco);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-principal:hover {
+    background-color: #0369a1;
+}
+
+.btn-eliminar {
+    background-color: var(--peligro);
+    color: var(--blanco);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contenedor-tabla {
+    background: var(--blanco);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tabla-custom {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-custom th, .tabla-custom td {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.tabla-custom th {
+    background-color: #f1f5f9;
+}
+
+.grilla-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+}
+
 .panel-filtros {
     background: #0f172a;
     border: 1px solid #1e293b;
@@ -151,4 +231,91 @@
 
 .btn-manifesto:hover {
     background-color: #ca8a04;
+}
+
+.seccion-oscura {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+}
+
+.titulo-seccion {
+    color: #38bdf8;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.subtitulo-seccion {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.tabla-despacho {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1e293b;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.tabla-despacho th {
+    background: #090d16;
+    color: #38bdf8;
+    padding: 12px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.tabla-despacho td {
+    padding: 12px;
+    border-bottom: 1px solid #334155;
+    color: #f1f5f9;
+    font-size: 0.9rem;
+}
+
+.input-custom {
+    background: #1e293b !important;
+    border: 1px solid #334155 !important;
+    color: white !important;
+    padding: 10px 14px !important;
+    border-radius: 6px !important;
+    font-size: 0.95rem !important;
+    width: 100%;
+}
+
+.input-custom:focus {
+    border-color: #38bdf8 !important;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.btn-autorizar {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+}
+
+.btn-autorizar:hover {
+    opacity: 0.9;
 }
