@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyOps - Inicio</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/formularios.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>SkyOps</h1>
+            <p>Logística y Recuperación AOG</p>
+        </div>
+        <nav>
+            <a href="index.html" class="activo">Inicio</a>
+            <a href="proyecto.html">Proyecto</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="flota.html">Flota</a>
+            <a href="bitacora.html">Bitácora</a>
+            <a href="manifiesto.html">Manifiesto</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <section class="bienvenida">
+            <h2>Panel de Control Central</h2>
+            <p>Plataforma para minimizar tiempos de inactividad de aeronaves en tierra (AOG).</p>
+        </section>
+
+        <div class="panel-resumen">
+            <div class="tarjeta-dato">
+                <h3>AOG Activos</h3>
+                <p id="stat-aog">0</p>
+            </div>
+            <div class="tarjeta-dato">
+                <h3>Repuestos Stock</h3>
+                <p id="stat-repuestos">0</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>SkyOps - Desarrollo Full Stack II | Agustín Boeri & Cristian Rivera</p>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/principal.js"></script>
+</body>
+</html>

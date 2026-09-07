@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyOps - Contacto</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/formularios.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>SkyOps</h1>
+            <p>Logística y Recuperación AOG</p>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="proyecto.html">Proyecto</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="flota.html">Flota</a>
+            <a href="bitacora.html">Bitácora</a>
+            <a href="manifiesto.html">Manifiesto</a>
+            <a href="contacto.html" class="activo">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <h2>Soporte Logístico y Contacto</h2>
+
+        <form id="form-contacto" class="caja-formulario" style="max-width: 500px;">
+            <div style="margin-bottom: 1rem;">
+                <label>Nombre del Operador</label><br>
+                <input type="text" id="nombre-contacto" placeholder="Tu nombre" required style="width: 100%; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Correo Electrónico</label><br>
+                <input type="email" id="correo-contacto" placeholder="correo@aerolinea.com" required style="width: 100%; margin-top: 5px;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Mensaje o Urgencia</label><br>
+                <textarea id="mensaje-contacto" placeholder="Detalla el requerimiento..." rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-principal">Enviar Mensaje</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>SkyOps - Desarrollo Full Stack II | Agustín Boeri & Cristian Rivera</p>
+    </footer>
+
+    <script src="js/contacto.js"></script>
+</body>
+</html>

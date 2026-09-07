@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyOps - Bitácora AOG</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/formularios.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>SkyOps</h1>
+            <p>Logística y Recuperación AOG</p>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="proyecto.html">Proyecto</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="flota.html">Flota</a>
+            <a href="bitacora.html" class="activo">Bitácora</a>
+            <a href="manifiesto.html">Manifiesto</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="contenedor" style="max-width: 1000px;">
+        <h2>Bitácora de Incidentes AOG</h2>
+        <p style="color: #64748b; margin-bottom: 1.5rem;">Registro oficial de aeronaves detenidas en tierra por emergencias técnicas requiriendo asistencia logística inmediata.</p>
+
+        <form id="form-bitacora" class="caja-formulario" style="background: white; color: #334155;">
+            <h3 style="color: #0f172a; margin-bottom: 1rem;">Registrar Nueva Alerta AOG</h3>
+            <div class="grupo-inputs">
+                <input type="text" id="matricula" placeholder="Matrícula (Ej: CC-AXP)" required>
+                <input type="text" id="falla" placeholder="Descripción de la falla técnica" required>
+                <button type="submit" class="btn-principal">Registrar Alerta</button>
+            </div>
+        </form>
+
+        <div id="lista-bitacora" class="grilla-tarjetas">
+            <!-- Dinámico vía JS -->
+        </div>
+    </main>
+
+    <footer>
+        <p>SkyOps - Desarrollo Full Stack II | Agustín Boeri & Cristian Rivera</p>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/bitacora.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyOps - Manifiesto</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/formularios.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>SkyOps</h1>
+            <p>Logística y Recuperación AOG</p>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="proyecto.html">Proyecto</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="flota.html">Flota</a>
+            <a href="bitacora.html">Bitácora</a>
+            <a href="manifiesto.html" class="activo">Manifiesto</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <h2>Manifiesto de Carga Urgente</h2>
+
+        <form id="form-manifiesto" class="caja-formulario">
+            <h3>Agregar Envío de Repuesto</h3>
+            <div class="grupo-inputs">
+                <input type="text" id="guia" placeholder="Número de Guía / Tracking" required>
+                <input type="text" id="destino" placeholder="Estación de destino" required>
+                <button type="submit" class="btn-principal">Añadir</button>
+            </div>
+        </form>
+
+        <div class="contenedor-tabla">
+            <table class="tabla-custom">
+                <thead>
+                    <tr>
+                        <th>Guía de Carga</th>
+                        <th>Destino</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo-manifiesto">
+                    <!-- Dinámico vía JS -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>SkyOps - Desarrollo Full Stack II | Agustín Boeri & Cristian Rivera</p>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/manifiesto.js"></script>
+</body>
+</html>
