@@ -13,7 +13,10 @@ function obtenerStorage(clave) {
         
         if (clave === 'skyops_bitacora') {
             datos = [
-                { folio: 'AOG-8004', matricula: 'CC-AZS', destino: 'Hangar 2', responsable: 'Fernanda Rojas', fecha: '2026-08-27 16:55', respuesta: '78 s', estado: 'COMPLETADO', origen: 'HISTÓRICO' }
+                { folio: 'AOG-8004', matricula: 'CC-AZS', destino: 'Hangar 2', responsable: 'Fernanda Rojas', fecha: '2026-08-27 16:55', respuesta: '78 s', estado: 'COMPLETADO', origen: 'HISTÓRICO' },
+                { folio: 'AOG-8006', matricula: 'CC-DBA', destino: 'Puerta 9', responsable: 'Fernanda Rojas', fecha: '2026-08-27 12:30', respuesta: '74 s', estado: 'EN CURSO', origen: 'HISTÓRICO' },
+                { folio: 'AOG-8003', matricula: 'CC-BFA', destino: 'Puerta 14', responsable: 'Diego Salinas', fecha: '2026-08-26 09:48', respuesta: '91 s', estado: 'COMPLETADO', origen: 'HISTÓRICO' },
+                { folio: 'AOG-8002', matricula: 'CC-DBC', destino: 'Puerta 22', responsable: 'Fernanda Rojas', fecha: '2026-08-25 14:19', respuesta: '65 s', estado: 'COMPLETADO', origen: 'HISTÓRICO' }
             ];
             guardarStorage(clave, datos);
         }
@@ -23,11 +26,7 @@ function obtenerStorage(clave) {
                 { matricula: 'CC-BFA', modelo: 'Airbus A320neo', aerolinea: 'LATAM Airlines', aeropuerto: 'SCL', ubicacion: 'Puerta 14', aog: true },
                 { matricula: 'CC-AVE', modelo: 'Airbus A321', aerolinea: 'LATAM Airlines', aeropuerto: 'SCL', ubicacion: 'Plataforma Remota 3', aog: false },
                 { matricula: 'CC-AZS', modelo: 'Boeing 737-800', aerolinea: 'Sky Airline', aeropuerto: 'ANF', ubicacion: 'Hangar 2', aog: true },
-                { matricula: 'CC-DBC', modelo: 'Airbus A320', aerolinea: 'JetSMART', aeropuerto: 'SCL', ubicacion: 'Puerta 22', aog: false },
-                { matricula: 'CC-BHB', modelo: 'Boeing 737 MAX 8', aerolinea: 'Sky Airline', aeropuerto: 'PMC', ubicacion: 'Plataforma Remota 1', aog: false },
-                { matricula: 'CC-AWX', modelo: 'Airbus A321neo', aerolinea: 'LATAM Airlines', aeropuerto: 'CCP', ubicacion: 'Hangar 1', aog: true },
-                { matricula: 'CC-DGA', modelo: 'Airbus A320', aerolinea: 'JetSMART', aeropuerto: 'SCL', ubicacion: 'Puerta 9', aog: false },
-                { matricula: 'CC-BGO', modelo: 'Boeing 787-9', aerolinea: 'LATAM Airlines', aeropuerto: 'SCL', ubicacion: 'Puerta 31 (Internacional)', aog: false }
+                { matricula: 'CC-DBC', modelo: 'Airbus A320', aerolinea: 'JetSMART', aeropuerto: 'SCL', ubicacion: 'Puerta 22', aog: false }
             ];
             guardarStorage(clave, datos);
         }

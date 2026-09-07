@@ -35,9 +35,14 @@ function renderizarBitacora(filtroMat = '', filtroEstado = '') {
         return;
     }
 
-    filtrados.forEach((item) => {
+    filtrados.forEach((item, indexReal) => {
         let colorEstado = item.estado === 'COMPLETADO' ? '#16a34a' : '#eab308';
         
+        // Botón dinámico para resolver AOG si está en curso
+        let botonAccion = item.estado === 'EN CURSO' 
+            ? `<button onclick="resolverDespacho(${indexReal})" style="background: #16a34a; color: white; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: bold;">Resolver AOG</button>`
+            : `<span style="color: #64748b; font-size: 0.8rem;">Cerrado</span>`;
+
         tbody.innerHTML += `
             <tr style="border-bottom: 1px solid #334155;">
                 <td><strong>${item.folio}</strong></td>
@@ -47,10 +52,26 @@ function renderizarBitacora(filtroMat = '', filtroEstado = '') {
                 <td>${item.fecha}</td>
                 <td>${item.respuesta}</td>
                 <td><span style="background: ${colorEstado}; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">${item.estado}</span></td>
-                <td><span style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">${item.origen || 'ESTA SESIÓN'}</span></td>
+                <td>${botonAccion}</td>
             </tr>
         `;
     });
+}
+
+function resolverDespacho(index) {
+    let bitacora = obtenerStorage('skyops_bitacora');
+    
+    if (bitacora[index]) {
+        bitacora[index].estado = 'COMPLETADO';
+        guardarStorage('skyops_bitacora', bitacora);
+        
+        renderizarBitacora(
+            document.getElementById('filtro-mat').value,
+            document.getElementById('filtro-estado').value
+        );
+        
+        alert(`¡Incidente resuelto con éxito! El despacho ${bitacora[index].folio} figura como COMPLETADO y la aeronave ${bitacora[index].matricula} ha sido liberada a servicio.`);
+    }
 }
 
 function configurarFiltrosBitacora() {
@@ -58,7 +79,7 @@ function configurarFiltrosBitacora() {
     const selectEstado = document.getElementById('filtro-estado');
 
     const actualizar = () => {
-        renderizarBitacora(inputMat.value, selectEstado.value);
+        renderizarBitacora(inputMat ? inputMat.value : '', selectEstado ? selectEstado.value : '');
     };
 
     if (inputMat) inputMat.addEventListener('input', actualizar);
