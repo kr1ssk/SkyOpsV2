@@ -37,7 +37,6 @@ function renderizarFlota(filtroAerolinea = '', filtroAeropuerto = '', soloAog = 
             ? `<span style="background: #7f1d1d; color: #fca5a5; border: 1px solid #ef4444; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;"><span style="width: 6px; height: 6px; background: #ef4444; border-radius: 50%;"></span> AOG</span>`
             : `<span style="background: #14532d; color: #86efac; border: 1px solid #22c55e; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;"><span style="width: 6px; height: 6px; background: #22c55e; border-radius: 50%;"></span> OPERATIVA</span>`;
 
-        // Al hacer clic en abrir manifiesto, guardamos la matrícula afectada para contextualizar la orden
         let accionBoton = item.aog
             ? `<button onclick="seleccionarAeronaveAOG('${item.matricula}')" class="btn-manifesto" style="padding: 4px 12px; font-size: 0.8rem; cursor: pointer; border: none; border-radius: 4px;">Abrir manifiesto</button>`
             : `<span style="color: #64748b; font-size: 0.85rem;">Sin acción</span>`;
@@ -57,9 +56,7 @@ function renderizarFlota(filtroAerolinea = '', filtroAeropuerto = '', soloAog = 
 }
 
 function seleccionarAeronaveAOG(matricula) {
-    // Guardamos la matrícula en sessionStorage para que el manifiesto o el despacho sepan a qué avión va dirigido
     sessionStorage.setItem('skyops_aeronave_seleccionada', matricula);
-    // Redirigir al catálogo o manifiesto
     window.location.href = 'catalogo.html';
 }
 

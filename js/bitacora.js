@@ -16,12 +16,10 @@ function renderizarBitacora(filtroMat = '', filtroEstado = '') {
 
     let registros = obtenerBitacoraCompleta();
 
-    // Actualizar KPIs globales
     if (kpiTotal) kpiTotal.textContent = registros.length;
     if (kpiCompletados) kpiCompletados.textContent = registros.filter(r => r.estado === 'COMPLETADO').length;
     if (kpiCursos) kpiCursos.textContent = registros.filter(r => r.estado === 'EN CURSO').length;
 
-    // Filtrar registros
     const filtrados = registros.filter(item => {
         const matMatch = item.matricula.toLowerCase().includes(filtroMat.toLowerCase());
         const estadoMatch = filtroEstado === '' || item.estado === filtroEstado;
@@ -38,7 +36,6 @@ function renderizarBitacora(filtroMat = '', filtroEstado = '') {
     filtrados.forEach((item, indexReal) => {
         let colorEstado = item.estado === 'COMPLETADO' ? '#16a34a' : '#eab308';
         
-        // Botón dinámico para resolver AOG si está en curso
         let botonAccion = item.estado === 'EN CURSO' 
             ? `<button onclick="resolverDespacho(${indexReal})" style="background: #16a34a; color: white; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: bold;">Resolver AOG</button>`
             : `<span style="color: #64748b; font-size: 0.8rem;">Cerrado</span>`;
