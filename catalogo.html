@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyOps - Catálogo de Componentes</title>
+    <title>SkyOps - Contacto</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/formularios.css">
 </head>
@@ -16,66 +16,39 @@
         <nav>
             <a href="index.html">Inicio</a>
             <a href="proyecto.html">Proyecto</a>
-            <a href="catalogo.html" class="activo">Catálogo</a>
+            <a href="catalogo.html">Catálogo</a>
             <a href="manifiesto.html">Manifiesto</a>
             <a href="despacho.html">Despacho AOG</a>
             <a href="bitacora.html">Bitácora</a>
             <a href="flota.html">Flota</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="contacto.html" class="activo">Contacto</a>
         </nav>
     </header>
 
-    <main class="contenedor" style="max-width: 1200px;">
-        <h2>Catálogo de componentes aeronáuticos</h2>
-        <p style="color: #64748b; margin-bottom: 1.5rem;">Equivalente funcional al catálogo de productos de una tienda online. Cada ficha muestra número de parte (P/N), número de serie (S/N), capítulo ATA, bodega de origen y certificado de aeronavegabilidad 8130-3.</p>
+    <main class="contenedor">
+        <h2>Soporte Logístico y Contacto</h2>
 
-        <div class="panel-filtros">
-            <div class="filtro-grupo principal">
-                <label>Buscar componente</label>
-                <input type="text" id="input-buscar" placeholder="Ej: bomba, PN-29-1120 o SN-55871">
+        <form id="form-contacto" class="caja-formulario" style="max-width: 500px;">
+            <div style="margin-bottom: 1rem;">
+                <label>Nombre del Operador</label><br>
+                <input type="text" id="nombre-contacto" placeholder="Tu nombre" required style="width: 100%; margin-top: 5px;">
             </div>
-            <div class="filtro-grupo">
-                <label>Categoría de ingeniería</label>
-                <select id="filtro-categoria">
-                    <option value="">Todas las categorías</option>
-                    <option value="ESTRUCTURAS">Estructuras</option>
-                    <option value="MOTORES">Motores</option>
-                    <option value="TREN">Tren de Aterrizaje</option>
-                </select>
+            <div style="margin-bottom: 1rem;">
+                <label>Correo Electrónico</label><br>
+                <input type="email" id="correo-contacto" placeholder="correo@aerolinea.com" required style="width: 100%; margin-top: 5px;">
             </div>
-            <div class="filtro-grupo">
-                <label>Capítulo ATA</label>
-                <select id="filtro-ata">
-                    <option value="">Todos los capítulos</option>
-                    <option value="ATA 27">ATA 27 (Mandos)</option>
-                    <option value="ATA 32">ATA 32 (Tren)</option>
-                    <option value="ATA 72">ATA 72 (Motor)</option>
-                </select>
+            <div style="margin-bottom: 1rem;">
+                <label>Mensaje o Urgencia</label><br>
+                <textarea id="mensaje-contacto" placeholder="Detalla el requerimiento..." rows="4" required></textarea>
             </div>
-            <div class="filtro-grupo checkbox-container">
-                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: white;">
-                    <input type="checkbox" id="check-stock" style="width: 16px; height: 16px;">
-                    Sólo con stock
-                </label>
-                <span style="font-size: 0.75rem; color: #94a3b8;">Oculta los componentes agotados</span>
-            </div>
-            <div class="filtro-grupo" style="justify-content: flex-end;">
-                <button id="btn-limpiar-filtros" class="btn-secundario">Limpiar filtros</button>
-            </div>
-        </div>
-
-        <p id="contador-resultados" style="color: #94a3b8; margin: 1.5rem 0 1rem 0; font-size: 0.9rem;"></p>
-
-        <div id="grid-catalogo" class="grid-componentes">
-            <!-- Dinámico vía JS -->
-        </div>
+            <button type="submit" class="btn-principal">Enviar Mensaje</button>
+        </form>
     </main>
 
     <footer>
         <p>SkyOps - Desarrollo Full Stack II | Agustín Boeri & Cristian Rivera</p>
     </footer>
 
-    <script src="js/datos.js"></script>
-    <script src="js/catalogo.js"></script>
+    <script src="js/contacto.js"></script>
 </body>
 </html>

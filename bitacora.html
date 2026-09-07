@@ -15,12 +15,12 @@
         </div>
         <nav>
             <a href="index.html">Inicio</a>
+            <a href="proyecto.html">Proyecto</a>
             <a href="catalogo.html">Catálogo</a>
             <a href="manifiesto.html">Manifiesto</a>
             <a href="despacho.html">Despacho AOG</a>
             <a href="bitacora.html" class="activo">Bitácora</a>
             <a href="flota.html">Flota</a>
-            <a href="proyecto.html">Proyecto</a>
             <a href="contacto.html">Contacto</a>
         </nav>
     </header>
@@ -31,7 +31,6 @@
             <p style="color: #94a3b8; margin-top: 5px;">Equivalente funcional al historial de pedidos. Registro trazable de los despachos ya ejecutados, insumo directo para la auditoría de mantenimiento.</p>
         </div>
 
-        <!-- Tarjetas de Estadísticas / KPIs -->
         <div class="grid-kpis" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
             <div class="seccion-oscura" style="text-align: center; margin-bottom: 0; padding: 1.2rem;">
                 <span id="kpi-total" style="font-size: 2rem; font-weight: bold; color: #38bdf8;">0</span>
@@ -51,7 +50,6 @@
             </div>
         </div>
 
-        <!-- Panel de Filtros -->
         <div class="seccion-oscura" style="display: flex; gap: 1.5rem; align-items: center; margin-bottom: 2rem;">
             <div style="flex: 1;">
                 <label style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px;">Filtrar por matrícula</label>
@@ -67,7 +65,6 @@
             </div>
         </div>
 
-        <!-- Tabla de Historial -->
         <div class="seccion-oscura">
             <h3 class="titulo-seccion">📋 Historial de Trazabilidad</h3>
             <p class="subtitulo-seccion">El tiempo de respuesta se mide desde que se autoriza el despacho hasta que el componente llega a la aeronave.</p>
@@ -91,35 +88,10 @@
                 </table>
             </div>
         </div>
-
-        <!-- Sección Informativa Estilo Pro -->
-        <div class="seccion-oscura" style="margin-top: 3rem;">
-            <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Por qué la trazabilidad no es opcional</h3>
-            <p style="color: #94a3b8; margin-bottom: 1.5rem; line-height: 1.6;">En la industria MRO (Maintenance, Repair and Overhaul) cada componente instalado en una aeronave debe poder responder cuatro preguntas: qué pieza es, de dónde vino, quién autorizó su instalación y cuándo. La bitácora de SkyOps deja registro permanente de las cuatro.</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
-                <div style="background: #1e293b; padding: 1.2rem; border-radius: 6px;">
-                    <strong style="color: #38bdf8; display: block; margin-bottom: 5px;">Qué</strong>
-                    <span style="color: #cbd5e1; font-size: 0.85rem;">Número de parte y número de serie de cada línea despachada.</span>
-                </div>
-                <div style="background: #1e293b; padding: 1.2rem; border-radius: 6px;">
-                    <strong style="color: #38bdf8; display: block; margin-bottom: 5px;">De dónde</strong>
-                    <span style="color: #cbd5e1; font-size: 0.85rem;">Bodega de origen y aeropuerto desde donde salió el componente.</span>
-                </div>
-                <div style="background: #1e293b; padding: 1.2rem; border-radius: 6px;">
-                    <strong style="color: #38bdf8; display: block; margin-bottom: 5px;">Quién</strong>
-                    <span style="color: #cbd5e1; font-size: 0.85rem;">Ingeniero solicitante con su licencia y coordinador que despachó.</span>
-                </div>
-                <div style="background: #1e293b; padding: 1.2rem; border-radius: 6px;">
-                    <strong style="color: #38bdf8; display: block; margin-bottom: 5px;">Cuándo</strong>
-                    <span style="color: #cbd5e1; font-size: 0.85rem;">Fecha, hora y tiempo total de respuesta en segundos.</span>
-                </div>
-            </div>
-        </div>
     </main>
 
     <footer>
-        <p>SkyOps - Sistema Logístico de Recuperación AOG — Proyecto académico de la asignatura DSY1104 Desarrollo Full Stack II, Duoc UC. © 2026 Agustín Boeri y Cristian Rivera. Todos los datos mostrados son simulados con fines educativos.</p>
+        <p>SkyOps - Sistema Logístico de Recuperación AOG — Proyecto académico de la asignatura DSY1104 Desarrollo Full Stack II, Duoc UC. © 2026 Agustín Boeri y Cristian Rivera.</p>
     </footer>
 
     <script src="js/datos.js"></script>
