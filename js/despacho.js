@@ -37,9 +37,28 @@ function configurarFormularioDespacho() {
             const destino = document.getElementById('despacho-destino').value;
             const ingeniero = document.getElementById('despacho-ingeniero').value;
 
-            alert(`¡Despacho AOG autorizado con éxito para la aeronave ${matricula} hacia ${destino}!\nIngeniero a cargo: ${ingeniero}`);
+            // Generar fecha y folio automático
+            const ahora = new Date();
+            const fechaStr = ahora.toISOString().slice(0, 10) + ' ' + ahora.toTimeString().slice(0, 5);
+            const folioAleatorio = 'AOG-' + Math.floor(1000 + Math.random() * 9000);
+
+            // Guardar en la bitácora
+            const bitacora = obtenerStorage('skyops_bitacora');
+            bitacora.unshift({
+                folio: folioAleatorio,
+                matricula: matricula.toUpperCase(),
+                destino: destino,
+                responsable: ingeniero,
+                fecha: fechaStr,
+                respuesta: '72 s',
+                estado: 'EN CURSO',
+                origen: 'ESTA SESIÓN'
+            });
+            guardarStorage('skyops_bitacora', bitacora);
+
+            alert(`¡Despacho AOG autorizado con éxito!\nFolio generado: ${folioAleatorio}\nRegistrado en la Bitácora de Despachos.`);
             
-            // Limpiar manifiesto tras autorizar despacho exitoso
+            // Limpiar manifiesto tras autorizar
             localStorage.setItem('skyops_manifiesto', JSON.stringify([]));
             form.reset();
             renderizarManifiestoDespacho();

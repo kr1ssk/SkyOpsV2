@@ -1,51 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form-bitacora');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const matricula = document.getElementById('matricula').value;
-            const falla = document.getElementById('falla').value;
-
-            const bitacora = obtenerStorage('skyops_bitacora');
-            bitacora.push({ matricula, falla });
-            guardarStorage('skyops_bitacora', bitacora);
-
-            form.reset();
-            renderizarBitacora();
-        });
-        renderizarBitacora();
-    }
+    renderizarBitacora();
+    configurarFiltrosBitacora();
 });
 
-function renderizarBitacora() {
-    const contenedor = document.getElementById('lista-bitacora');
-    if (!contenedor) return;
+function obtenerBitacoraCompleta() {
+    return obtenerStorage('skyops_bitacora');
+}
 
-    const bitacora = obtenerStorage('skyops_bitacora');
-    contenedor.innerHTML = '';
+function renderizarBitacora(filtroMat = '', filtroEstado = '') {
+    const tbody = document.getElementById('tabla-bitacora-body');
+    const kpiTotal = document.getElementById('kpi-total');
+    const kpiCompletados = document.getElementById('kpi-completados');
+    const kpiCursos = document.getElementById('kpi-cursos');
+    if (!tbody) return;
 
-    if (bitacora.length === 0) {
-        contenedor.innerHTML = `<p style="color: #64748b; grid-column: 1/-1;">No hay aeronaves reportadas en tierra actualmente.</p>`;
+    let registros = obtenerBitacoraCompleta();
+
+    // Actualizar KPIs globales
+    if (kpiTotal) kpiTotal.textContent = registros.length;
+    if (kpiCompletados) kpiCompletados.textContent = registros.filter(r => r.estado === 'COMPLETADO').length;
+    if (kpiCursos) kpiCursos.textContent = registros.filter(r => r.estado === 'EN CURSO').length;
+
+    // Filtrar registros
+    const filtrados = registros.filter(item => {
+        const matMatch = item.matricula.toLowerCase().includes(filtroMat.toLowerCase());
+        const estadoMatch = filtroEstado === '' || item.estado === filtroEstado;
+        return matMatch && estadoMatch;
+    });
+
+    tbody.innerHTML = '';
+
+    if (filtrados.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #94a3b8; padding: 1.5rem;">No se encontraron despachos registrados con los filtros seleccionados.</td></tr>`;
         return;
     }
 
-    bitacora.forEach((item, index) => {
-        contenedor.innerHTML += `
-            <div class="caja-formulario" style="background: #0f172a; color: white; margin-bottom: 0; border-left: 4px solid #ef4444; display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <span style="font-size: 0.75rem; color: #ef4444; font-weight: bold; text-transform: uppercase;">Estado: AOG Activo</span>
-                    <h4 style="font-size: 1.2rem; margin: 0.4rem 0;">Aeronave: ${item.matricula}</h4>
-                    <p style="margin: 0.5rem 0; color: #cbd5e1; font-size: 0.9rem;"><strong>Incidente:</strong> ${item.falla}</p>
-                </div>
-                <button class="btn-eliminar" style="margin-top: 1rem; width: 100%;" onclick="borrarBitacora(${index})">Resolver / Cerrar AOG</button>
-            </div>
+    filtrados.forEach((item) => {
+        let colorEstado = item.estado === 'COMPLETADO' ? '#16a34a' : '#eab308';
+        
+        tbody.innerHTML += `
+            <tr style="border-bottom: 1px solid #334155;">
+                <td><strong>${item.folio}</strong></td>
+                <td>${item.matricula}</td>
+                <td>${item.destino}</td>
+                <td>${item.responsable}</td>
+                <td>${item.fecha}</td>
+                <td>${item.respuesta}</td>
+                <td><span style="background: ${colorEstado}; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">${item.estado}</span></td>
+                <td><span style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">${item.origen || 'ESTA SESIÓN'}</span></td>
+            </tr>
         `;
     });
 }
 
-function borrarBitacora(index) {
-    let bitacora = obtenerStorage('skyops_bitacora');
-    bitacora.splice(index, 1);
-    guardarStorage('skyops_bitacora', bitacora);
-    renderizarBitacora();
+function configurarFiltrosBitacora() {
+    const inputMat = document.getElementById('filtro-mat');
+    const selectEstado = document.getElementById('filtro-estado');
+
+    const actualizar = () => {
+        renderizarBitacora(inputMat.value, selectEstado.value);
+    };
+
+    if (inputMat) inputMat.addEventListener('input', actualizar);
+    if (selectEstado) selectEstado.addEventListener('change', actualizar);
 }
