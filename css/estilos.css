@@ -600,3 +600,151 @@ footer {
     font-size: 0.85rem;
     line-height: 1.5;
 }
+
+/* ==========================================================
+   RESPONSIVE - Parte 1: cabecera y navegacion
+   El sitio se disena para escritorio y aqui lo adaptamos a
+   pantallas mas chicas. Los cortes son:
+     1024px -> tablet horizontal (iPad)
+      768px -> tablet vertical y celular grande
+      480px -> celular
+   ========================================================== */
+
+@media (max-width: 1024px) {
+    header {
+        padding: 1rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .contenedor {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* En celular el logo va arriba y el menu abajo, centrado */
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        width: 100%;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+        padding: 5px 9px;
+    }
+
+    .contenedor {
+        padding: 1rem 0.8rem;
+    }
+
+    footer {
+        font-size: 0.75rem;
+        padding: 1rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        gap: 6px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        padding: 4px 7px;
+    }
+}
+
+/* ==========================================================
+   RESPONSIVE - Parte 2: contenido, tarjetas y tablas
+   ========================================================== */
+
+@media (max-width: 1024px) {
+    /* En tablet las dos columnas grandes pasan a una sola */
+    .layout-manifiesto,
+    .layout-contacto {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-filtros-flota {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    /* Los botones que estaban alineados abajo ya no necesitan el empujon */
+    .btn-alineado,
+    .label-check {
+        margin-top: 0;
+    }
+
+    .grid-kpis {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .fila-filtros {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    /* Cada linea del manifiesto se apila para que quepa */
+    .linea-manifiesto {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controles-linea {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .acciones-form {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .acciones-form button {
+        width: 100%;
+    }
+
+    .imagen-componente {
+        height: 170px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-kpis {
+        grid-template-columns: 1fr;
+    }
+
+    .numero-kpi {
+        font-size: 1.6rem;
+    }
+
+    .tarjeta-dato {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .panel-resumen {
+        flex-direction: column;
+    }
+
+}
