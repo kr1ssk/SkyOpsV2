@@ -28,21 +28,21 @@ function renderizarFlota(filtroAerolinea = '', filtroAeropuerto = '', soloAog = 
     tbody.innerHTML = '';
 
     if (filtrados.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: #94a3b8; padding: 1.5rem;">No se encontraron aeronaves con los filtros seleccionados.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" class="celda-vacia">No se encontraron aeronaves con los filtros seleccionados.</td></tr>`;
         return;
     }
 
     filtrados.forEach((item) => {
         let estadoBadge = item.aog 
-            ? `<span style="background: #7f1d1d; color: #fca5a5; border: 1px solid #ef4444; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;"><span style="width: 6px; height: 6px; background: #ef4444; border-radius: 50%;"></span> AOG</span>`
-            : `<span style="background: #14532d; color: #86efac; border: 1px solid #22c55e; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;"><span style="width: 6px; height: 6px; background: #22c55e; border-radius: 50%;"></span> OPERATIVA</span>`;
+            ? `<span class="badge-aog"><span class="punto"></span> AOG</span>`
+            : `<span class="badge-operativa"><span class="punto"></span> OPERATIVA</span>`;
 
         let accionBoton = item.aog
-            ? `<button onclick="seleccionarAeronaveAOG('${item.matricula}')" class="btn-manifesto" style="padding: 4px 12px; font-size: 0.8rem; cursor: pointer; border: none; border-radius: 4px;">Abrir manifiesto</button>`
-            : `<span style="color: #64748b; font-size: 0.85rem;">Sin acción</span>`;
+            ? `<button onclick="seleccionarAeronaveAOG('${item.matricula}')" class="btn-manifesto btn-tabla">Abrir manifiesto</button>`
+            : `<span class="texto-inactivo">Sin acción</span>`;
 
         tbody.innerHTML += `
-            <tr style="border-bottom: 1px solid #334155;">
+            <tr>
                 <td><strong>${item.matricula}</strong></td>
                 <td>${item.modelo}</td>
                 <td>${item.aerolinea}</td>

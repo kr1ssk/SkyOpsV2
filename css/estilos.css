@@ -119,3 +119,129 @@ footer {
 .aviso-aeronave.oculto {
     display: none;
 }
+
+/* ==========================================================
+   Clases que reemplazan los estilos que antes iban en linea
+   dentro del HTML. La rubrica pide que todo el CSS este en
+   hojas externas, asi que aqui las juntamos.
+   ========================================================== */
+
+.contenedor-ancho {
+    max-width: 1200px;
+}
+
+.encabezado-pagina {
+    margin-bottom: 2rem;
+}
+
+.texto-secundario {
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.texto-comodo {
+    line-height: 1.6;
+}
+
+.parrafo-separado {
+    margin-top: 10px;
+}
+
+.contador-listado {
+    color: #94a3b8;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* La tabla puede desplazarse sola cuando la pantalla es angosta */
+.tabla-scroll {
+    overflow-x: auto;
+}
+
+.label-form {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.label-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 0.85rem;
+    margin-top: 15px;
+}
+
+.columna-check {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.check-aog {
+    width: 16px;
+    height: 16px;
+    accent-color: #ef4444;
+}
+
+/* ---------- Tabla de flota ---------- */
+.panel-filtros-flota {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.badge-aog,
+.badge-operativa {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-aog {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+    border: 1px solid #ef4444;
+}
+
+.badge-operativa {
+    background-color: #14532d;
+    color: #86efac;
+    border: 1px solid #22c55e;
+}
+
+.badge-aog .punto,
+.badge-operativa .punto {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.btn-tabla {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.texto-inactivo {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.celda-vacia {
+    text-align: center;
+    color: #94a3b8;
+    padding: 1.5rem;
+}
