@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     renderizarBitacora();
     configurarFiltrosBitacora();
 });
@@ -7,7 +7,21 @@ function obtenerBitacoraCompleta() {
     return obtenerStorage('skyops_bitacora');
 }
 
-function renderizarBitacora(filtroMat = '', filtroEstado = '') {
+// Cuenta cuantos registros estan en un estado, recorriendo el arreglo
+function contarPorEstado(registros, estado) {
+    let total = 0;
+    for (let i = 0; i < registros.length; i++) {
+        if (registros[i].estado === estado) {
+            total = total + 1;
+        }
+    }
+    return total;
+}
+
+function renderizarBitacora(filtroMat, filtroEstado) {
+    if (filtroMat === undefined) filtroMat = '';
+    if (filtroEstado === undefined) filtroEstado = '';
+
     const tbody = document.getElementById('tabla-bitacora-body');
     const kpiTotal = document.getElementById('kpi-total');
     const kpiCompletados = document.getElementById('kpi-completados');
@@ -17,42 +31,54 @@ function renderizarBitacora(filtroMat = '', filtroEstado = '') {
     let registros = obtenerBitacoraCompleta();
 
     if (kpiTotal) kpiTotal.textContent = registros.length;
-    if (kpiCompletados) kpiCompletados.textContent = registros.filter(r => r.estado === 'COMPLETADO').length;
-    if (kpiCursos) kpiCursos.textContent = registros.filter(r => r.estado === 'EN CURSO').length;
+    if (kpiCompletados) kpiCompletados.textContent = contarPorEstado(registros, 'COMPLETADO');
+    if (kpiCursos) kpiCursos.textContent = contarPorEstado(registros, 'EN CURSO');
 
-    const filtrados = registros.filter(item => {
-        const matMatch = item.matricula.toLowerCase().includes(filtroMat.toLowerCase());
+    // Armamos la lista filtrada con un for y un arreglo nuevo
+    const filtrados = [];
+    for (let i = 0; i < registros.length; i++) {
+        const item = registros[i];
+        const matMatch = item.matricula.toLowerCase().indexOf(filtroMat.toLowerCase()) !== -1;
         const estadoMatch = filtroEstado === '' || item.estado === filtroEstado;
-        return matMatch && estadoMatch;
-    });
+
+        if (matMatch && estadoMatch) {
+            filtrados.push(item);
+        }
+    }
 
     tbody.innerHTML = '';
 
     if (filtrados.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="8" class="celda-vacia">No se encontraron despachos registrados con los filtros seleccionados.</td></tr>`;
+        tbody.innerHTML = '<tr><td colspan="8" class="celda-vacia">' +
+                          'No se encontraron despachos con los filtros seleccionados.</td></tr>';
         return;
     }
 
-    filtrados.forEach((item) => {
-        let claseEstado = item.estado === 'COMPLETADO' ? 'badge-completado' : 'badge-encurso';
-        
-        let botonAccion = item.estado === 'EN CURSO' 
-            ? `<button onclick="resolverDespacho('${item.folio}')" class="btn-resolver">Resolver AOG</button>`
-            : `<span class="texto-inactivo">Cerrado</span>`;
+    for (let i = 0; i < filtrados.length; i++) {
+        const item = filtrados[i];
+        let claseEstado = 'badge-encurso';
+        if (item.estado === 'COMPLETADO') {
+            claseEstado = 'badge-completado';
+        }
 
-        tbody.innerHTML += `
-            <tr>
-                <td><strong>${item.folio}</strong></td>
-                <td>${item.matricula}</td>
-                <td>${item.destino}</td>
-                <td>${item.responsable}</td>
-                <td>${item.fecha}</td>
-                <td>${item.respuesta}</td>
-                <td><span class="${claseEstado}">${item.estado}</span></td>
-                <td>${botonAccion}</td>
-            </tr>
-        `;
-    });
+        let botonAccion = '<span class="texto-inactivo">Cerrado</span>';
+        if (item.estado === 'EN CURSO') {
+            botonAccion = '<button class="btn-resolver" onclick="resolverDespacho(\'' +
+                          item.folio + '\')">Resolver AOG</button>';
+        }
+
+        tbody.innerHTML +=
+            '<tr>' +
+                '<td><strong>' + item.folio + '</strong></td>' +
+                '<td>' + item.matricula + '</td>' +
+                '<td>' + item.destino + '</td>' +
+                '<td>' + item.responsable + '</td>' +
+                '<td>' + item.fecha + '</td>' +
+                '<td>' + item.respuesta + '</td>' +
+                '<td><span class="' + claseEstado + '">' + item.estado + '</span></td>' +
+                '<td>' + botonAccion + '</td>' +
+            '</tr>';
+    }
 }
 
 // Se busca por folio y no por posicion: si hay un filtro activo, la posicion
@@ -82,9 +108,12 @@ function configurarFiltrosBitacora() {
     const inputMat = document.getElementById('filtro-mat');
     const selectEstado = document.getElementById('filtro-estado');
 
-    const actualizar = () => {
-        renderizarBitacora(inputMat ? inputMat.value : '', selectEstado ? selectEstado.value : '');
-    };
+    function actualizar() {
+        renderizarBitacora(
+            inputMat ? inputMat.value : '',
+            selectEstado ? selectEstado.value : ''
+        );
+    }
 
     if (inputMat) inputMat.addEventListener('input', actualizar);
     if (selectEstado) selectEstado.addEventListener('change', actualizar);

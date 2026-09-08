@@ -279,7 +279,10 @@ footer {
 .imagen-componente img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* contain muestra la imagen completa dentro de la caja.
+       Con cover se veia agrandada y se cortaba por abajo. */
+    object-fit: contain;
+    padding: 8px;
 }
 
 .card-action-row .btn-manifesto {

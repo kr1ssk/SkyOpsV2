@@ -1,4 +1,29 @@
+// Version de los datos de ejemplo.
+// El navegador guarda el catalogo en localStorage la primera vez que entras.
+// Si despues cambiamos los datos de aqui abajo, el navegador seguiria usando
+// los viejos porque ya los tenia guardados. Por eso llevamos un numero de
+// version: si no coincide, se borra lo guardado y se cargan los datos nuevos.
+const VERSION_DATOS = 2;
+let versionRevisada = false;
+
+function revisarVersionDatos() {
+    if (versionRevisada) return;
+    versionRevisada = true;
+
+    const guardada = localStorage.getItem('skyops_version');
+
+    if (guardada !== String(VERSION_DATOS)) {
+        // El catalogo y la flota son datos de referencia: se recargan.
+        // La bitacora y el manifiesto NO se tocan porque son del usuario.
+        localStorage.removeItem('skyops_catalogo');
+        localStorage.removeItem('skyops_flota');
+        localStorage.setItem('skyops_version', String(VERSION_DATOS));
+    }
+}
+
 function obtenerStorage(clave) {
+    revisarVersionDatos();
+
     let datos = JSON.parse(localStorage.getItem(clave));
     
     if (!datos || datos.length === 0) {
@@ -38,7 +63,7 @@ function obtenerStorage(clave) {
         if (clave === 'skyops_bitacora') {
             datos = [
                 { folio: 'AOG-8004', matricula: 'CC-AZS', destino: 'Hangar 2', responsable: 'Fernanda Rojas', fecha: '2026-08-27 16:55', respuesta: '78 s', estado: 'COMPLETADO', origen: 'HISTÓRICO' },
-                { folio: 'AOG-8006', matricula: 'CC-DBA', destino: 'Puerta 9', responsable: 'Fernanda Rojas', fecha: '2026-08-27 12:30', respuesta: '74 s', estado: 'EN CURSO', origen: 'HISTÓRICO' }
+                { folio: 'AOG-8006', matricula: 'CC-DGA', destino: 'Puerta 9', responsable: 'Fernanda Rojas', fecha: '2026-08-27 12:30', respuesta: '74 s', estado: 'EN CURSO', origen: 'HISTÓRICO' }
             ];
             guardarStorage(clave, datos);
         }

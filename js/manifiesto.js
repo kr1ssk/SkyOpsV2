@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     renderizarManifiesto();
 });
 
@@ -15,46 +15,56 @@ function renderizarManifiesto() {
     if (badge) badge.textContent = manifiesto.length;
     if (resLineas) resLineas.textContent = manifiesto.length;
 
+    // Sumamos las unidades recorriendo el arreglo con un for normal
     let totalUnidades = 0;
-    manifiesto.forEach(item => totalUnidades += parseInt(item.cantidad || 1));
+    for (let i = 0; i < manifiesto.length; i++) {
+        totalUnidades = totalUnidades + parseInt(manifiesto[i].cantidad || 1);
+    }
     if (resUnidades) resUnidades.textContent = totalUnidades;
 
     if (manifiesto.length === 0) {
-        contenedor.innerHTML = `<p class="mensaje-vacio">El manifiesto está vacío. Agrega componentes desde el Catálogo.</p>`;
+        contenedor.innerHTML = '<p class="mensaje-vacio">El manifiesto esta vacio. ' +
+                               'Agrega componentes desde el Catalogo.</p>';
         return;
     }
 
-    manifiesto.forEach((item, index) => {
-        contenedor.innerHTML += `
-            <div class="linea-manifiesto">
-                <div>
-                    <h4 class="titulo-linea">${item.nombre || item.destino}</h4>
-                    <span class="dato-linea">P/N: ${item.guia} &nbsp;|&nbsp; S/N: ${item.sn || 'SN-40213'} &nbsp;|&nbsp; ${item.ata || 'ATA 72'}</span>
-                    <span class="dato-linea dato-bodega">${item.bodega || 'Bodega ANF - D11'}</span>
-                </div>
-                <div class="controles-linea">
-                    <input type="number" id="cant-${index}" value="${item.cantidad || 1}" min="1" max="${item.stockMax || 10}" onchange="actualizarCantidad(${index})" class="input-qty">
-                    <button class="btn-eliminar" onclick="quitarLinea(${index})" class="btn-chico">Quitar</button>
-                </div>
-            </div>
-        `;
-    });
+    for (let i = 0; i < manifiesto.length; i++) {
+        const item = manifiesto[i];
+
+        contenedor.innerHTML +=
+            '<div class="linea-manifiesto">' +
+                '<div>' +
+                    '<h4 class="titulo-linea">' + (item.nombre || item.destino) + '</h4>' +
+                    '<span class="dato-linea">P/N: ' + item.guia +
+                        ' &nbsp;|&nbsp; S/N: ' + (item.sn || 'SN-0000') +
+                        ' &nbsp;|&nbsp; ' + (item.ata || 'ATA') + '</span>' +
+                    '<span class="dato-linea dato-bodega">' + (item.bodega || 'Bodega') + '</span>' +
+                '</div>' +
+                '<div class="controles-linea">' +
+                    '<label class="etiqueta-oculta" for="cant-' + i + '">Cantidad</label>' +
+                    '<input type="number" id="cant-' + i + '" class="input-qty" value="' + (item.cantidad || 1) +
+                        '" min="1" max="' + (item.stockMax || 10) + '" onchange="actualizarCantidad(' + i + ')">' +
+                    '<button class="btn-eliminar btn-chico" onclick="quitarLinea(' + i + ')">Quitar</button>' +
+                '</div>' +
+            '</div>';
+    }
 }
 
 function actualizarCantidad(index) {
     let manifiesto = obtenerStorage('skyops_manifiesto');
-    const input = document.getElementById(`cant-${index}`);
+    const input = document.getElementById('cant-' + index);
     let nuevaCant = parseInt(input.value);
 
-    // Regla de negocio: Cantidad mínima 1
+    // Regla de negocio: cantidad minima 1
     if (nuevaCant <= 0) {
         quitarLinea(index);
         return;
     }
 
-    // Regla de negocio: Nunca por sobre el stock
+    // Regla de negocio: nunca por sobre el stock de bodega
     if (manifiesto[index].stockMax && nuevaCant > manifiesto[index].stockMax) {
-        alert(`Stock máximo disponible en bodega: ${manifiesto[index].stockMax}. No puedes solicitar más de lo existente.`);
+        alert('Stock maximo disponible en bodega: ' + manifiesto[index].stockMax +
+              '. No puedes solicitar mas de lo que existe.');
         nuevaCant = manifiesto[index].stockMax;
         input.value = nuevaCant;
     }
@@ -72,8 +82,8 @@ function quitarLinea(index) {
 }
 
 function vaciarManifiesto() {
-    if (confirm('¿Desea vaciar todo el manifiesto de repuestos?')) {
-        localStorage.setItem('skyops_manifiesto', JSON.stringify([]));
+    if (confirm('Deseas vaciar todo el manifiesto de repuestos?')) {
+        guardarStorage('skyops_manifiesto', []);
         renderizarManifiesto();
     }
 }
