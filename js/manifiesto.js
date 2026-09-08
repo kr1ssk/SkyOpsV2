@@ -20,21 +20,21 @@ function renderizarManifiesto() {
     if (resUnidades) resUnidades.textContent = totalUnidades;
 
     if (manifiesto.length === 0) {
-        contenedor.innerHTML = `<p style="color: #64748b; padding: 1rem;">El manifiesto está vacío. Agrega componentes desde el Catálogo.</p>`;
+        contenedor.innerHTML = `<p class="mensaje-vacio">El manifiesto está vacío. Agrega componentes desde el Catálogo.</p>`;
         return;
     }
 
     manifiesto.forEach((item, index) => {
         contenedor.innerHTML += `
-            <div style="background: #1e293b; padding: 1rem; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #334155;">
+            <div class="linea-manifiesto">
                 <div>
-                    <h4 style="color: white; font-size: 1rem; margin-bottom: 3px;">${item.nombre || item.destino}</h4>
-                    <span style="font-size: 0.75rem; color: #94a3b8; display: block;">P/N: ${item.guia} &nbsp;|&nbsp; S/N: ${item.sn || 'SN-40213'} &nbsp;|&nbsp; ${item.ata || 'ATA 72'}</span>
-                    <span style="font-size: 0.75rem; color: #38bdf8; display: block; margin-top: 3px;">${item.bodega || 'Bodega ANF - D11'}</span>
+                    <h4 class="titulo-linea">${item.nombre || item.destino}</h4>
+                    <span class="dato-linea">P/N: ${item.guia} &nbsp;|&nbsp; S/N: ${item.sn || 'SN-40213'} &nbsp;|&nbsp; ${item.ata || 'ATA 72'}</span>
+                    <span class="dato-linea dato-bodega">${item.bodega || 'Bodega ANF - D11'}</span>
                 </div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <input type="number" id="cant-${index}" value="${item.cantidad || 1}" min="1" max="${item.stockMax || 10}" onchange="actualizarCantidad(${index})" style="width: 60px; background: #0f172a; border: 1px solid #475569; color: white; text-align: center; padding: 4px; border-radius: 4px;">
-                    <button class="btn-eliminar" onclick="quitarLinea(${index})" style="padding: 5px 10px; font-size: 0.8rem;">Quitar</button>
+                <div class="controles-linea">
+                    <input type="number" id="cant-${index}" value="${item.cantidad || 1}" min="1" max="${item.stockMax || 10}" onchange="actualizarCantidad(${index})" class="input-qty">
+                    <button class="btn-eliminar" onclick="quitarLinea(${index})" class="btn-chico">Quitar</button>
                 </div>
             </div>
         `;

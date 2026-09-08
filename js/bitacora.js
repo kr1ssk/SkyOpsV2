@@ -29,26 +29,26 @@ function renderizarBitacora(filtroMat = '', filtroEstado = '') {
     tbody.innerHTML = '';
 
     if (filtrados.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #94a3b8; padding: 1.5rem;">No se encontraron despachos registrados con los filtros seleccionados.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="8" class="celda-vacia">No se encontraron despachos registrados con los filtros seleccionados.</td></tr>`;
         return;
     }
 
     filtrados.forEach((item) => {
-        let colorEstado = item.estado === 'COMPLETADO' ? '#16a34a' : '#eab308';
+        let claseEstado = item.estado === 'COMPLETADO' ? 'badge-completado' : 'badge-encurso';
         
         let botonAccion = item.estado === 'EN CURSO' 
-            ? `<button onclick="resolverDespacho('${item.folio}')" style="background: #16a34a; color: white; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: bold;">Resolver AOG</button>`
-            : `<span style="color: #64748b; font-size: 0.8rem;">Cerrado</span>`;
+            ? `<button onclick="resolverDespacho('${item.folio}')" class="btn-resolver">Resolver AOG</button>`
+            : `<span class="texto-inactivo">Cerrado</span>`;
 
         tbody.innerHTML += `
-            <tr style="border-bottom: 1px solid #334155;">
+            <tr>
                 <td><strong>${item.folio}</strong></td>
                 <td>${item.matricula}</td>
                 <td>${item.destino}</td>
                 <td>${item.responsable}</td>
                 <td>${item.fecha}</td>
                 <td>${item.respuesta}</td>
-                <td><span style="background: ${colorEstado}; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">${item.estado}</span></td>
+                <td><span class="${claseEstado}">${item.estado}</span></td>
                 <td>${botonAccion}</td>
             </tr>
         `;
