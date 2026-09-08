@@ -1,7 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+    mostrarAeronaveSeleccionada();
     renderizarCatalogo();
     configurarFiltros();
 });
+
+// Si el usuario llego aqui desde la pagina de Flota, avisamos para que
+// aeronave esta armando el manifiesto.
+function mostrarAeronaveSeleccionada() {
+    const aviso = document.getElementById('aviso-aeronave');
+    const matricula = sessionStorage.getItem('skyops_aeronave_seleccionada');
+
+    if (!aviso) return;
+
+    if (matricula) {
+        aviso.textContent = 'Estas armando el manifiesto para la aeronave ' + matricula +
+                            ', declarada AOG. Los componentes que agregues quedaran asociados a ese despacho.';
+    } else {
+        aviso.classList.add('oculto');
+    }
+}
 
 function obtenerCatalogoCompleto() {
     return obtenerStorage('skyops_catalogo');
