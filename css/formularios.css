@@ -13,6 +13,14 @@
     flex-wrap: wrap;
 }
 
+/* Las casillas y los radios no deben estirarse como los campos de texto */
+input[type="checkbox"],
+input[type="radio"] {
+    min-width: 0;
+    width: auto;
+    flex: none;
+}
+
 input, select, textarea {
     padding: 8px;
     border: 1px solid var(--borde);
@@ -354,5 +362,40 @@ textarea {
 
     .card-action-row {
         flex-wrap: wrap;
+    }
+}
+
+/* Reglas responsive de los selectores que se definen en este archivo.
+   Van aqui y no en estilos.css porque formularios.css se enlaza despues:
+   si estuvieran alla, estas reglas base les ganarian. */
+
+@media (max-width: 1024px) {
+    .panel-filtros {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-componentes {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .panel-filtros {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .grid-componentes {
+        grid-template-columns: 1fr;
+    }
+
+    .seccion-oscura {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .seccion-oscura {
+        padding: 1rem;
     }
 }

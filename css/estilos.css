@@ -680,34 +680,18 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .panel-filtros {
-        grid-template-columns: 1fr 1fr;
-    }
-
     .panel-filtros-flota {
         grid-template-columns: 1fr 1fr;
     }
 
-    .grid-componentes {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
 }
 
 @media (max-width: 768px) {
-    .panel-filtros,
-    .panel-filtros-flota {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
 
     /* Los botones que estaban alineados abajo ya no necesitan el empujon */
     .btn-alineado,
     .label-check {
         margin-top: 0;
-    }
-
-    .grid-componentes {
-        grid-template-columns: 1fr;
     }
 
     .grid-kpis {
@@ -729,10 +713,6 @@ footer {
     .controles-linea {
         width: 100%;
         justify-content: flex-end;
-    }
-
-    .seccion-oscura {
-        padding: 1.2rem;
     }
 
     .acciones-form {
@@ -767,7 +747,4 @@ footer {
         flex-direction: column;
     }
 
-    .seccion-oscura {
-        padding: 1rem;
-    }
 }
