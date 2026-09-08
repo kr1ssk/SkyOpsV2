@@ -25,10 +25,10 @@
         </nav>
     </header>
 
-    <main class="contenedor" style="max-width: 1200px;">
-        <div style="margin-bottom: 2rem;">
+    <main class="contenedor contenedor-ancho">
+        <div class="encabezado-pagina">
             <h2>Catálogo de componentes aeronáuticos</h2>
-            <p style="color: #94a3b8; margin-top: 5px;">Equivalente funcional al catálogo de productos de una tienda online. Cada ficha muestra número de parte (P/N), número de serie (S/N), capítulo ATA, bodega de origen y certificado de aeronavegabilidad 8130-3.</p>
+            <p class="texto-secundario">Equivalente funcional al catálogo de productos de una tienda online. Cada ficha muestra número de parte (P/N), número de serie (S/N), capítulo ATA, bodega de origen y certificado de aeronavegabilidad 8130-3.</p>
         </div>
 
         <div class="panel-filtros">
@@ -54,20 +54,20 @@
                     <option value="ATA 72">ATA 72 (Motor)</option>
                 </select>
             </div>
-            <div class="filtro-grupo" style="justify-content: flex-end;">
-                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: white; font-size: 0.85rem; margin-top: 15px;">
-                    <input type="checkbox" id="check-stock" style="width: 16px; height: 16px; accent-color: #38bdf8;">
+            <div class="filtro-grupo filtro-abajo">
+                <label class="label-check">
+                    <input type="checkbox" id="check-stock" class="check-stock">
                     Sólo con stock
                 </label>
             </div>
-            <div class="filtro-grupo" style="justify-content: flex-end;">
-                <button id="btn-limpiar-filtros" class="btn-secundario" style="margin-top: 15px;">Limpiar filtros</button>
+            <div class="filtro-grupo filtro-abajo">
+                <button id="btn-limpiar-filtros" class="btn-secundario btn-alineado">Limpiar filtros</button>
             </div>
         </div>
 
         <p id="aviso-aeronave" class="aviso-aeronave"></p>
 
-        <p id="contador-resultados" style="color: #94a3b8; margin: 1.5rem 0 1rem 0; font-size: 0.9rem;"></p>
+        <p id="contador-resultados" class="contador-resultados"></p>
 
         <div id="grid-catalogo" class="grid-componentes">
             <!-- Dinámico vía JS -->

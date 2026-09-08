@@ -25,16 +25,16 @@
         </nav>
     </header>
 
-    <main class="contenedor" style="max-width: 1100px;">
-        <div style="margin-bottom: 2rem;">
+    <main class="contenedor contenedor-ancho">
+        <div class="encabezado-pagina">
             <h2>Despacho de Urgencia AOG</h2>
-            <p style="color: #64748b; margin-top: 5px;">Módulo de validación operativa y despacho de componentes aeronáuticos críticos hacia plataforma.</p>
+            <p class="texto-secundario">Módulo de validación operativa y despacho de componentes aeronáuticos críticos hacia plataforma.</p>
         </div>
 
         <div class="seccion-oscura">
             <h3 class="titulo-seccion">📦 Manifiesto de Carga Activo</h3>
             <p class="subtitulo-seccion">Componentes listos para el despacho en rampa.</p>
-            <div style="overflow-x: auto;">
+            <div class="tabla-scroll">
                 <table class="tabla-despacho">
                     <thead>
                         <tr>
@@ -56,13 +56,13 @@
             <h3 class="titulo-seccion">✈️ Autorización Operativa de Despacho</h3>
             <p class="subtitulo-seccion">Complete los datos de la aeronave y del ingeniero responsable para autorizar la salida.</p>
 
-            <div class="grid-2" style="margin-bottom: 1.5rem;">
+            <div class="grid-2 espacio-abajo">
                 <div>
-                    <label style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Matrícula de la Aeronave *</label>
+                    <label class="label-form">Matrícula de la Aeronave *</label>
                     <input type="text" id="despacho-matricula" placeholder="Ej: CC-BFA" class="input-custom" required>
                 </div>
                 <div>
-                    <label style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Puerta / Hangar de Destino *</label>
+                    <label class="label-form">Puerta / Hangar de Destino *</label>
                     <select id="despacho-destino" class="input-custom" required>
                         <option value="">Selecciona la ubicación...</option>
                         <option value="Puerta 9">Puerta 9</option>
@@ -73,25 +73,25 @@
                 </div>
             </div>
 
-            <div class="grid-2" style="margin-bottom: 1.5rem;">
+            <div class="grid-2 espacio-abajo">
                 <div>
-                    <label style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Ingeniero Responsable *</label>
+                    <label class="label-form">Ingeniero Responsable *</label>
                     <input type="text" id="despacho-ingeniero" placeholder="Nombre y Apellido" class="input-custom" required>
                 </div>
                 <div>
-                    <label style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">Número de Licencia *</label>
+                    <label class="label-form">Número de Licencia *</label>
                     <input type="text" id="despacho-licencia" placeholder="Ej: LE-3401" class="input-custom" required>
                 </div>
             </div>
 
-            <div style="margin: 1.5rem 0; background: #1e293b; padding: 1rem; border-radius: 6px;">
-                <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; color: #cbd5e1; font-size: 0.9rem;">
-                    <input type="checkbox" id="check-autorizacion" required style="width: 18px; height: 18px; accent-color: #38bdf8;">
+            <div class="caja-declaracion">
+                <label class="label-declaracion">
+                    <input type="checkbox" id="check-autorizacion" required class="check-grande">
                     Declaro que la información es correcta y asumo la responsabilidad técnica y operativa de este despacho AOG.
                 </label>
             </div>
 
-            <div style="display: flex; gap: 1rem; justify-content: flex-end; align-items: center;">
+            <div class="acciones-form">
                 <button type="button" class="btn-secundario" onclick="document.getElementById('form-despacho').reset()">Limpiar campos</button>
                 <button type="submit" class="btn-autorizar">Autorizar Despacho AOG</button>
             </div>

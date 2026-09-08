@@ -18,18 +18,18 @@ function renderizarManifiestoEnDespacho() {
     tbody.innerHTML = '';
 
     if (manifiesto.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #94a3b8; padding: 1.5rem;">No hay componentes en el manifiesto activo. Agrega piezas desde el catálogo.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="5" class="celda-vacia">No hay componentes en el manifiesto activo. Agrega piezas desde el catálogo.</td></tr>`;
         return;
     }
 
     manifiesto.forEach(item => {
         tbody.innerHTML += `
-            <tr style="border-bottom: 1px solid #334155;">
+            <tr>
                 <td><strong>${item.guia}</strong></td>
                 <td>${item.nombre}</td>
                 <td>${item.ata}</td>
                 <td>${item.bodega}</td>
-                <td><strong style="color: #38bdf8;">${item.cantidad}</strong></td>
+                <td><strong class="texto-celeste">${item.cantidad}</strong></td>
             </tr>
         `;
     });

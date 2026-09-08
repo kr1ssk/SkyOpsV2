@@ -119,3 +119,484 @@ footer {
 .aviso-aeronave.oculto {
     display: none;
 }
+
+/* ==========================================================
+   Clases que reemplazan los estilos que antes iban en linea
+   dentro del HTML. La rubrica pide que todo el CSS este en
+   hojas externas, asi que aqui las juntamos.
+   ========================================================== */
+
+.contenedor-ancho {
+    max-width: 1200px;
+}
+
+.encabezado-pagina {
+    margin-bottom: 2rem;
+}
+
+.texto-secundario {
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.texto-comodo {
+    line-height: 1.6;
+}
+
+.parrafo-separado {
+    margin-top: 10px;
+}
+
+.contador-listado {
+    color: #94a3b8;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* La tabla puede desplazarse sola cuando la pantalla es angosta */
+.tabla-scroll {
+    overflow-x: auto;
+}
+
+.label-form {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.label-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 0.85rem;
+    margin-top: 15px;
+}
+
+.columna-check {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.check-aog {
+    width: 16px;
+    height: 16px;
+    accent-color: #ef4444;
+}
+
+/* ---------- Tabla de flota ---------- */
+.panel-filtros-flota {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.badge-aog,
+.badge-operativa {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-aog {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+    border: 1px solid #ef4444;
+}
+
+.badge-operativa {
+    background-color: #14532d;
+    color: #86efac;
+    border: 1px solid #22c55e;
+}
+
+.badge-aog .punto,
+.badge-operativa .punto {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.btn-tabla {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.texto-inactivo {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.celda-vacia {
+    text-align: center;
+    color: #94a3b8;
+    padding: 1.5rem;
+}
+
+/* ---------- Catalogo de componentes ---------- */
+.contador-resultados {
+    color: #94a3b8;
+    margin: 1.5rem 0 1rem 0;
+    font-size: 0.9rem;
+}
+
+.filtro-abajo {
+    justify-content: flex-end;
+}
+
+.btn-alineado {
+    margin-top: 15px;
+}
+
+.check-stock {
+    width: 16px;
+    height: 16px;
+    accent-color: #38bdf8;
+}
+
+.imagen-componente {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    background-color: #0f172a;
+}
+
+.imagen-componente img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-action-row .btn-manifesto {
+    font-size: 0.8rem;
+}
+
+.btn-ancho {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.sin-resultados {
+    color: #64748b;
+    grid-column: 1 / -1;
+}
+
+/* Etiqueta que existe para los lectores de pantalla pero no se ve */
+.etiqueta-oculta {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+/* ---------- Utilidades compartidas ---------- */
+.sin-margen-abajo { margin-bottom: 0; }
+.espacio-abajo    { margin-bottom: 1.5rem; }
+.espacio-arriba   { margin-top: 2rem; }
+.columna-flexible { flex: 1; }
+.valor-blanco     { color: #ffffff; }
+.texto-celeste    { color: #38bdf8; }
+.texto-amarillo   { color: #eab308; }
+.texto-gris       { color: #94a3b8; }
+.titulo-simple    { color: #ffffff; font-size: 1.1rem; margin-bottom: 1rem; }
+.nota-chica       { color: #64748b; font-size: 0.75rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.panel-claro      { background-color: #0f172a; border: 1px solid #334155; }
+.mensaje-vacio    { color: #64748b; padding: 1rem; }
+
+/* ---------- Manifiesto ---------- */
+.badge-contador {
+    background-color: #eab308;
+    color: #1e293b;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.layout-manifiesto {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.lista-lineas {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.linea-manifiesto {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    padding: 1rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.titulo-linea { color: #ffffff; font-size: 1rem; margin-bottom: 3px; }
+.dato-linea   { font-size: 0.75rem; color: #94a3b8; display: block; }
+.dato-bodega  { color: #38bdf8; margin-top: 3px; }
+
+.controles-linea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-chico { padding: 5px 10px; font-size: 0.8rem; }
+
+.bloque-resumen {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 1.2rem 0;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.fila-resumen {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fila-total {
+    border-top: 1px solid #334155;
+    padding-top: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.acciones-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.btn-ancho-total { width: 100%; text-align: center; }
+
+.btn-enlace {
+    text-align: center;
+    text-decoration: none;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+    display: block;
+}
+
+.lista-reglas {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 20px;
+    line-height: 1.5;
+}
+
+/* ---------- Bitacora ---------- */
+.grid-kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tarjeta-kpi {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 1.2rem;
+}
+
+.numero-kpi {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+.numero-verde    { color: #16a34a; }
+.numero-amarillo { color: #eab308; }
+
+.etiqueta-kpi {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.fila-filtros {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.badge-completado,
+.badge-encurso {
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.badge-completado { background-color: #16a34a; }
+.badge-encurso    { background-color: #eab308; color: #1e293b; }
+
+.btn-resolver {
+    background-color: #16a34a;
+    color: #ffffff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* ---------- Despacho ---------- */
+.caja-declaracion {
+    margin: 1.5rem 0;
+    background-color: #1e293b;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.label-declaracion {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+.check-grande {
+    width: 18px;
+    height: 18px;
+    accent-color: #38bdf8;
+}
+
+.acciones-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* ---------- Contacto ---------- */
+.layout-contacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.columna-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.subtitulo-grupo {
+    color: #38bdf8;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.espacio-abajo-chico { margin-bottom: 1.2rem; }
+
+.pista-campo {
+    font-size: 0.7rem;
+    color: #64748b;
+    display: block;
+    margin-top: 3px;
+}
+
+.fila-contador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.contador-caracteres {
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+.contador-pasado {
+    color: #ef4444;
+    font-weight: bold;
+}
+
+.check-amarillo {
+    width: 16px;
+    height: 16px;
+    accent-color: #eab308;
+}
+
+.nota-consentimiento {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    display: block;
+    margin-top: 4px;
+    padding-left: 26px;
+}
+
+.btn-enviar { padding: 10px 20px; }
+
+.badge-critico,
+.badge-programado,
+.badge-rutina {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.badge-critico    { background-color: #7f1d1d; color: #fca5a5; border: 1px solid #ef4444; }
+.badge-programado { background-color: #78350f; color: #fde047; border: 1px solid #eab308; }
+.badge-rutina     { background-color: #14532d; color: #86efac; border: 1px solid #22c55e; }
+
+.titulo-sub {
+    color: #ffffff;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.lista-datos {
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-left: 18px;
+    line-height: 1.5;
+}
+
+.parrafo-gris {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}

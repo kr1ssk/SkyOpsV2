@@ -25,38 +25,38 @@
         </nav>
     </header>
 
-    <main class="contenedor" style="max-width: 1200px;">
-        <div style="margin-bottom: 2rem;">
+    <main class="contenedor contenedor-ancho">
+        <div class="encabezado-pagina">
             <h2>Bitácora de despachos AOG</h2>
-            <p style="color: #94a3b8; margin-top: 5px;">Equivalente funcional al historial de pedidos. Registro trazable de los despachos ya ejecutados, insumo directo para la auditoría de mantenimiento.</p>
+            <p class="texto-secundario">Equivalente funcional al historial de pedidos. Registro trazable de los despachos ya ejecutados, insumo directo para la auditoría de mantenimiento.</p>
         </div>
 
-        <div class="grid-kpis" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-            <div class="seccion-oscura" style="text-align: center; margin-bottom: 0; padding: 1.2rem;">
-                <span id="kpi-total" style="font-size: 2rem; font-weight: bold; color: #38bdf8;">0</span>
-                <p style="color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; margin-top: 5px;">Despachos Listados</p>
+        <div class="grid-kpis grid-kpis">
+            <div class="seccion-oscura tarjeta-kpi">
+                <span id="kpi-total" class="numero-kpi">0</span>
+                <p class="etiqueta-kpi">Despachos Listados</p>
             </div>
-            <div class="seccion-oscura" style="text-align: center; margin-bottom: 0; padding: 1.2rem;">
-                <span style="font-size: 2rem; font-weight: bold; color: #38bdf8;">78 s</span>
-                <p style="color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; margin-top: 5px;">Tiempo Promedio</p>
+            <div class="seccion-oscura tarjeta-kpi">
+                <span class="numero-kpi">78 s</span>
+                <p class="etiqueta-kpi">Tiempo Promedio</p>
             </div>
-            <div class="seccion-oscura" style="text-align: center; margin-bottom: 0; padding: 1.2rem;">
-                <span id="kpi-completados" style="font-size: 2rem; font-weight: bold; color: #16a34a;">0</span>
-                <p style="color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; margin-top: 5px;">Completados</p>
+            <div class="seccion-oscura tarjeta-kpi">
+                <span id="kpi-completados" class="numero-kpi numero-verde">0</span>
+                <p class="etiqueta-kpi">Completados</p>
             </div>
-            <div class="seccion-oscura" style="text-align: center; margin-bottom: 0; padding: 1.2rem;">
-                <span id="kpi-cursos" style="font-size: 2rem; font-weight: bold; color: #eab308;">0</span>
-                <p style="color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; margin-top: 5px;">En Curso</p>
+            <div class="seccion-oscura tarjeta-kpi">
+                <span id="kpi-cursos" class="numero-kpi numero-amarillo">0</span>
+                <p class="etiqueta-kpi">En Curso</p>
             </div>
         </div>
 
-        <div class="seccion-oscura" style="display: flex; gap: 1.5rem; align-items: center; margin-bottom: 2rem;">
-            <div style="flex: 1;">
-                <label style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px;">Filtrar por matrícula</label>
+        <div class="seccion-oscura fila-filtros">
+            <div class="columna-flexible">
+                <label class="label-form">Filtrar por matrícula</label>
                 <input type="text" id="filtro-mat" placeholder="Ej: CC" class="input-custom">
             </div>
-            <div style="flex: 1;">
-                <label style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px;">Estado del despacho</label>
+            <div class="columna-flexible">
+                <label class="label-form">Estado del despacho</label>
                 <select id="filtro-estado" class="input-custom">
                     <option value="">Todos los estados</option>
                     <option value="COMPLETADO">COMPLETADO</option>
@@ -68,7 +68,7 @@
         <div class="seccion-oscura">
             <h3 class="titulo-seccion">📋 Historial de Trazabilidad</h3>
             <p class="subtitulo-seccion">El tiempo de respuesta se mide desde que se autoriza el despacho hasta que el componente llega a la aeronave.</p>
-            <div style="overflow-x: auto;">
+            <div class="tabla-scroll">
                 <table class="tabla-despacho">
                     <thead>
                         <tr>

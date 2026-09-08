@@ -25,40 +25,40 @@
         </nav>
     </header>
 
-    <main class="contenedor" style="max-width: 1200px;">
-        <div style="margin-bottom: 2rem;">
+    <main class="contenedor contenedor-ancho">
+        <div class="encabezado-pagina">
             <h2>Soporte técnico SkyOps 24/7</h2>
-            <p style="color: #94a3b8; margin-top: 5px;">Canal de contacto para incidencias de plataforma, altas de usuario y consultas de stock. Las contingencias AOG no respetan horario administrativo; por eso el soporte opera de forma continua.</p>
+            <p class="texto-secundario">Canal de contacto para incidencias de plataforma, altas de usuario y consultas de stock. Las contingencias AOG no respetan horario administrativo; por eso el soporte opera de forma continua.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+        <div class="layout-contacto">
             
             <!-- Formulario de Solicitud -->
-            <form id="form-contacto" class="seccion-oscura" style="margin-bottom: 0;">
+            <form id="form-contacto" class="seccion-oscura sin-margen-abajo">
                 <h3 class="titulo-seccion">Enviar una solicitud</h3>
                 <p class="subtitulo-seccion">Los campos marcados con * son obligatorios. La validación es la misma que en el Despacho AOG: mensajes claros, específicos y mostrados junto al campo que corresponde.</p>
 
-                <h4 style="color: #38bdf8; font-size: 0.95rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Datos de contacto</h4>
+                <h4 class="subtitulo-grupo">Datos de contacto</h4>
                 
-                <div class="grid-2" style="margin-bottom: 1.2rem;">
+                <div class="grid-2 espacio-abajo-chico">
                     <div>
-                        <label style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px;">Nombre y apellido *</label>
+                        <label class="label-form">Nombre y apellido *</label>
                         <input type="text" id="nombre-contacto" placeholder="Ej: Cristian Rivera" class="input-custom" required>
                     </div>
                     <div>
-                        <label style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px;">Correo corporativo *</label>
+                        <label class="label-form">Correo corporativo *</label>
                         <input type="email" id="correo-contacto" placeholder="c.rivera@skyops.aero" class="input-custom" required>
                     </div>
                 </div>
 
-                <div class="grid-2" style="margin-bottom: 1.2rem;">
+                <div class="grid-2 espacio-abajo-chico">
                     <div>
-                        <label style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px;">Aeropuerto base *</label>
+                        <label class="label-form">Aeropuerto base *</label>
                         <input type="text" id="aeropuerto-base" placeholder="SCL" class="input-custom" required>
-                        <span style="font-size: 0.7rem; color: #64748b; display: block; margin-top: 3px;">Código IATA (3 letras) u OACI (4 letras).</span>
+                        <span class="pista-campo">Código IATA (3 letras) u OACI (4 letras).</span>
                     </div>
                     <div>
-                        <label style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px;">Tipo de solicitud *</label>
+                        <label class="label-form">Tipo de solicitud *</label>
                         <select id="tipo-solicitud" class="input-custom" required>
                             <option value="">Selecciona una opción...</option>
                             <option value="AOG Crítico">AOG Crítico (Inmediato)</option>
@@ -68,36 +68,36 @@
                     </div>
                 </div>
 
-                <div style="margin-bottom: 1.2rem;">
-                    <label style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px;">Mensaje *</label>
+                <div class="espacio-abajo-chico">
+                    <label class="label-form">Mensaje *</label>
                     <textarea id="mensaje-contacto" placeholder="Describe la incidencia indicando matrícula, número de parte y qué ocurrió." rows="4" class="input-custom" required></textarea>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
-                        <span style="font-size: 0.7rem; color: #64748b;">Entre 20 y 500 caracteres.</span>
-                        <span id="contador-caracteres" style="font-size: 0.7rem; color: #94a3b8;">0 / 500</span>
+                    <div class="fila-contador">
+                        <span class="pista-campo">Entre 20 y 500 caracteres.</span>
+                        <span id="contador-caracteres" class="contador-caracteres">0 / 500</span>
                     </div>
                 </div>
 
-                <div style="margin: 1.2rem 0; background: #1e293b; padding: 1rem; border-radius: 6px;">
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: #cbd5e1; font-size: 0.85rem;">
-                        <input type="checkbox" id="check-autorizacion" required style="width: 16px; height: 16px; accent-color: #eab308;">
+                <div class="caja-declaracion">
+                    <label class="label-declaracion">
+                        <input type="checkbox" id="check-autorizacion" required class="check-amarillo">
                         Autorizo que SkyOps me contacte por correo *
                     </label>
-                    <span style="font-size: 0.7rem; color: #94a3b8; display: block; margin-top: 4px; padding-left: 26px;">Usaremos tus datos sólo para responder esta solicitud.</span>
+                    <span class="nota-consentimiento">Usaremos tus datos sólo para responder esta solicitud.</span>
                 </div>
 
-                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                <div class="acciones-form">
                     <button type="button" class="btn-secundario" onclick="document.getElementById('form-contacto').reset()">Borrar</button>
-                    <button type="submit" class="btn-manifesto" style="padding: 10px 20px;">Enviar solicitud</button>
+                    <button type="submit" class="btn-manifesto btn-enviar">Enviar solicitud</button>
                 </div>
             </form>
 
             <!-- Canales y Tiempos de Respuesta -->
-            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                <div class="seccion-oscura" style="margin-bottom: 0;">
+            <div class="columna-lateral">
+                <div class="seccion-oscura sin-margen-abajo">
                     <h3 class="titulo-seccion">Canales y tiempos de respuesta</h3>
                     <p class="subtitulo-seccion">Compromisos de atención según criticidad.</p>
                     
-                    <div style="overflow-x: auto; margin-bottom: 1.5rem;">
+                    <div class="tabla-scroll espacio-abajo">
                         <table class="tabla-despacho">
                             <thead>
                                 <tr>
@@ -107,18 +107,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="border-bottom: 1px solid #334155;">
-                                    <td><span style="background: #7f1d1d; color: #fca5a5; border: 1px solid #ef4444; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: bold;">AOG CRÍTICO</span></td>
+                                <tr>
+                                    <td><span class="badge-critico">AOG CRÍTICO</span></td>
                                     <td>Teléfono de guardia</td>
                                     <td>Inmediata</td>
                                 </tr>
-                                <tr style="border-bottom: 1px solid #334155;">
-                                    <td><span style="background: #78350f; color: #fde047; border: 1px solid #eab308; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: bold;">AOG PROGRAMADO</span></td>
+                                <tr>
+                                    <td><span class="badge-programado">AOG PROGRAMADO</span></td>
                                     <td>Formulario o correo</td>
                                     <td>Menos de 2 horas</td>
                                 </tr>
                                 <tr>
-                                    <td><span style="background: #14532d; color: #86efac; border: 1px solid #22c55e; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: bold;">RUTINA</span></td>
+                                    <td><span class="badge-rutina">RUTINA</span></td>
                                     <td>Formulario</td>
                                     <td>Menos de 24 horas</td>
                                 </tr>
@@ -126,18 +126,18 @@
                         </table>
                     </div>
 
-                    <h4 style="color: white; font-size: 0.95rem; margin-bottom: 0.8rem;">Centro de Control de Mantenimiento</h4>
-                    <ul style="color: #cbd5e1; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.4rem; padding-left: 18px; line-height: 1.5;">
+                    <h4 class="titulo-sub">Centro de Control de Mantenimiento</h4>
+                    <ul class="lista-datos">
                         <li>Aeropuerto Arturo Merino Benítez (SCL), Santiago de Chile.</li>
                         <li>Guardia AOG: <strong>+56 9 1234 5678</strong></li>
-                        <li>Correo: <span style="color: #38bdf8;">contacto@skyops.aero</span></li>
+                        <li>Correo: <span class="texto-celeste">contacto@skyops.aero</span></li>
                         <li>Operación continua, 24 horas los 7 días de la semana.</li>
                     </ul>
                 </div>
 
-                <div class="seccion-oscura" style="margin-bottom: 0; background: #0f172a; border: 1px solid #334155;">
-                    <h3 style="color: white; font-size: 1.05rem; margin-bottom: 0.5rem;">Antes de escribir</h3>
-                    <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.5;">Ten a mano la matrícula de la aeronave, el número de parte del componente y el folio del despacho si ya existe. Con esos tres datos el equipo puede reconstruir el caso completo desde la bitácora.</p>
+                <div class="seccion-oscura sin-margen-abajo panel-claro">
+                    <h3 class="titulo-sub">Antes de escribir</h3>
+                    <p class="parrafo-gris">Ten a mano la matrícula de la aeronave, el número de parte del componente y el folio del despacho si ya existe. Con esos tres datos el equipo puede reconstruir el caso completo desde la bitácora.</p>
                 </div>
             </div>
 

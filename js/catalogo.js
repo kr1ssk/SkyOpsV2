@@ -44,7 +44,7 @@ function renderizarCatalogo(filtroTexto = '', filtroCat = '', filtroAta = '', so
     contenedor.innerHTML = '';
 
     if (filtrados.length === 0) {
-        contenedor.innerHTML = `<p style="color: #64748b; grid-column: 1/-1;">No se encontraron componentes con los filtros seleccionados.</p>`;
+        contenedor.innerHTML = `<p class="sin-resultados">No se encontraron componentes con los filtros seleccionados.</p>`;
         return;
     }
 
@@ -55,34 +55,35 @@ function renderizarCatalogo(filtroTexto = '', filtroCat = '', filtroAta = '', so
         let imagenUrl = item.imagen || 'assets/img/actuador-tren.svg';
 
         contenedor.innerHTML += `
-            <div class="tarjeta-componente" style="display: flex; flex-direction: column; justify-content: space-between; background: #1e293b; border: 1px solid #334155; border-radius: 8px; overflow: hidden; padding: 1rem;">
+            <article class="tarjeta-componente">
                 <div>
-                    <div style="width: 100%; height: 140px; overflow: hidden; border-radius: 6px; margin-bottom: 1rem; background: #0f172a;">
-                        <img src="${imagenUrl}" alt="${item.nombre}" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="imagen-componente">
+                        <img src="${imagenUrl}" alt="${item.nombre}">
                     </div>
                     <div class="card-header-info">
-                        <span class="ata-tag" style="background: #0284c7; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem;">${item.ata || 'ATA GENERAL'}</span>
-                        <h4 style="color: white; font-size: 1rem; margin: 8px 0;">${item.nombre}</h4>
+                        <span class="ata-tag">${item.ata || 'ATA GENERAL'}</span>
+                        <h4>${item.nombre}</h4>
                     </div>
-                    <div class="badges-row" style="display: flex; gap: 8px; margin-bottom: 10px;">
+                    <div class="badges-row">
                         <span class="${claseBadge}">${textoEstado}</span>
-                        <span class="badge-cert" style="background: #334155; color: #38bdf8; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem;">8130-3</span>
+                        <span class="badge-cert">8130-3</span>
                     </div>
-                    <div class="specs-grid" style="font-size: 0.8rem; color: #94a3b8; display: flex; flex-direction: column; gap: 4px; margin-bottom: 1rem;">
-                        <div class="spec-row" style="display: flex; justify-content: space-between;"><span>Part Number</span><strong style="color:white;">${item.pn}</strong></div>
-                        <div class="spec-row" style="display: flex; justify-content: space-between;"><span>Serial Number</span><strong style="color:white;">${item.sn || 'SN-0000'}</strong></div>
-                        <div class="spec-row" style="display: flex; justify-content: space-between;"><span>Bodega</span><strong style="color:white;">${item.bodega || 'Bodega Central'}</strong></div>
-                        <div class="spec-row" style="display: flex; justify-content: space-between;"><span>Stock</span><strong style="color:white;">${item.stock || 1}</strong></div>
+                    <div class="specs-grid">
+                        <div class="spec-row"><span>Part Number</span><strong>${item.pn}</strong></div>
+                        <div class="spec-row"><span>Serial Number</span><strong>${item.sn || 'SN-0000'}</strong></div>
+                        <div class="spec-row"><span>Bodega</span><strong>${item.bodega || 'Bodega Central'}</strong></div>
+                        <div class="spec-row"><span>Stock</span><strong>${item.stock || 1}</strong></div>
                     </div>
                 </div>
                 <div>
-                    <div class="card-action-row" style="display: flex; gap: 8px; align-items: center;">
-                        <input type="number" id="qty-${indexReal}" class="input-qty" value="1" min="1" max="${item.stock || 1}" style="width: 50px; padding: 4px; background: #0f172a; border: 1px solid #475569; color: white; border-radius: 4px; text-align: center;">
-                        <button class="btn-manifesto" onclick="agregarAlManifiesto(${indexReal})" style="flex: 1; padding: 6px; font-size: 0.8rem; cursor: pointer;">Agregar al manifiesto</button>
+                    <div class="card-action-row">
+                        <label class="etiqueta-oculta" for="qty-${indexReal}">Cantidad de ${item.nombre}</label>
+                        <input type="number" id="qty-${indexReal}" class="input-qty" value="1" min="1" max="${item.stock || 1}">
+                        <button class="btn-manifesto" onclick="agregarAlManifiesto(${indexReal})">Agregar al manifiesto</button>
                     </div>
-                    <button class="btn-eliminar" style="width: 100%; margin-top: 8px; background: #7f1d1d; color: #fca5a5; border: none; padding: 5px; border-radius: 4px; cursor: pointer; font-size: 0.75rem;" onclick="borrarPieza(${indexReal})">Eliminar Componente</button>
+                    <button class="btn-eliminar btn-ancho" onclick="borrarPieza(${indexReal})">Eliminar Componente</button>
                 </div>
-            </div>
+            </article>
         `;
     });
 }
