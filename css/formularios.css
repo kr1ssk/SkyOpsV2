@@ -319,3 +319,40 @@ textarea {
 .btn-autorizar:hover {
     opacity: 0.9;
 }
+/* ==========================================================
+   RESPONSIVE de los formularios
+   ========================================================== */
+
+@media (max-width: 768px) {
+    /* El min-width de 200px hacia que los campos se salieran
+       de la pantalla en celular */
+    input, select, textarea {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .grupo-inputs {
+        flex-direction: column;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .caja-formulario {
+        padding: 1rem;
+    }
+
+    .tabla-despacho th,
+    .tabla-despacho td,
+    .tabla-custom th,
+    .tabla-custom td {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    .card-action-row {
+        flex-wrap: wrap;
+    }
+}
