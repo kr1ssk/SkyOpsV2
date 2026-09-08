@@ -46,7 +46,7 @@ textarea {
 }
 
 .btn-principal:hover {
-    background-color: #0369a1;
+    background-color: var(--acento-oscuro);
 }
 
 .btn-eliminar {
@@ -72,12 +72,12 @@ textarea {
 
 .tabla-custom th, .tabla-custom td {
     padding: 12px;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--gris-suave);
     text-align: left;
 }
 
 .tabla-custom th {
-    background-color: #f1f5f9;
+    background-color: var(--texto-suave);
 }
 
 .grilla-tarjetas {
@@ -87,8 +87,8 @@ textarea {
 }
 
 .panel-filtros {
-    background: #0f172a;
-    border: 1px solid #1e293b;
+    background: var(--primario);
+    border: 1px solid var(--panel-medio);
     border-radius: 8px;
     padding: 1.5rem;
     display: grid;
@@ -106,13 +106,13 @@ textarea {
 
 .filtro-grupo label {
     font-size: 0.8rem;
-    color: #94a3b8;
+    color: var(--texto-tenue);
     font-weight: 600;
 }
 
 .filtro-grupo input, .filtro-grupo select {
-    background: #1e293b;
-    border: 1px solid #334155;
+    background: var(--panel-medio);
+    border: 1px solid var(--borde-oscuro);
     color: white;
     padding: 0.6rem;
     border-radius: 4px;
@@ -121,8 +121,8 @@ textarea {
 
 .btn-secundario {
     background: transparent;
-    border: 1px solid #475569;
-    color: #cbd5e1;
+    border: 1px solid var(--borde-input);
+    color: var(--texto-claro);
     padding: 0.6rem 1rem;
     border-radius: 4px;
     cursor: pointer;
@@ -130,7 +130,7 @@ textarea {
 }
 
 .btn-secundario:hover {
-    background: #1e293b;
+    background: var(--panel-medio);
     color: white;
 }
 
@@ -141,32 +141,32 @@ textarea {
 }
 
 .tarjeta-componente {
-    background: #0f172a;
-    color: #ffffff;
+    background: var(--primario);
+    color: var(--blanco);
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #1e293b;
+    border: 1px solid var(--panel-medio);
 }
 
 .card-icon-container {
-    background: #1e293b;
+    background: var(--panel-medio);
     border-radius: 6px;
     height: 110px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    color: #38bdf8;
+    color: var(--celeste);
     font-size: 2rem;
 }
 
 .card-header-info .ata-tag {
     font-size: 0.7rem;
-    color: #94a3b8;
+    color: var(--texto-tenue);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -174,7 +174,7 @@ textarea {
 .card-header-info h4 {
     font-size: 1.1rem;
     margin: 0.3rem 0 0.8rem 0;
-    color: #f8fafc;
+    color: var(--fondo);
 }
 
 .badges-row {
@@ -183,20 +183,20 @@ textarea {
     margin-bottom: 1rem;
 }
 
-.badge-disp { background-color: #16a34a; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
-.badge-bajo { background-color: #ca8a04; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
-.badge-cert { background-color: #0284c7; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
+.badge-disp { background-color: var(--verde); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
+.badge-bajo { background-color: var(--amarillo-oscuro); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
+.badge-cert { background-color: var(--acento); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
 
 .specs-grid {
-    border-top: 1px solid #1e293b;
-    border-bottom: 1px solid #1e293b;
+    border-top: 1px solid var(--panel-medio);
+    border-bottom: 1px solid var(--panel-medio);
     padding: 0.8rem 0;
     margin-bottom: 1rem;
     font-size: 0.85rem;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    color: #94a3b8;
+    color: var(--texto-tenue);
 }
 
 .spec-row {
@@ -205,7 +205,7 @@ textarea {
 }
 
 .spec-row span:last-child {
-    color: #f1f5f9;
+    color: var(--texto-suave);
     font-weight: 500;
 }
 
@@ -217,8 +217,8 @@ textarea {
 
 .input-qty {
     width: 60px;
-    background: #1e293b;
-    border: 1px solid #334155;
+    background: var(--panel-medio);
+    border: 1px solid var(--borde-oscuro);
     color: white;
     text-align: center;
     border-radius: 4px;
@@ -227,8 +227,8 @@ textarea {
 
 .btn-manifesto {
     flex: 1;
-    background-color: #eab308;
-    color: #1e293b;
+    background-color: var(--amarillo);
+    color: var(--panel-medio);
     border: none;
     font-weight: bold;
     padding: 0.5rem;
@@ -238,12 +238,12 @@ textarea {
 }
 
 .btn-manifesto:hover {
-    background-color: #ca8a04;
+    background-color: var(--amarillo-oscuro);
 }
 
 .seccion-oscura {
-    background: #0f172a;
-    border: 1px solid #1e293b;
+    background: var(--primario);
+    border: 1px solid var(--panel-medio);
     border-radius: 10px;
     padding: 2rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
@@ -251,7 +251,7 @@ textarea {
 }
 
 .titulo-seccion {
-    color: #38bdf8;
+    color: var(--celeste);
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
     display: flex;
@@ -260,7 +260,7 @@ textarea {
 }
 
 .subtitulo-seccion {
-    color: #94a3b8;
+    color: var(--texto-tenue);
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
 }
@@ -268,14 +268,14 @@ textarea {
 .tabla-despacho {
     width: 100%;
     border-collapse: collapse;
-    background: #1e293b;
+    background: var(--panel-medio);
     border-radius: 6px;
     overflow: hidden;
 }
 
 .tabla-despacho th {
-    background: #090d16;
-    color: #38bdf8;
+    background: var(--panel-negro);
+    color: var(--celeste);
     padding: 12px;
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -285,14 +285,14 @@ textarea {
 
 .tabla-despacho td {
     padding: 12px;
-    border-bottom: 1px solid #334155;
-    color: #f1f5f9;
+    border-bottom: 1px solid var(--borde-oscuro);
+    color: var(--texto-suave);
     font-size: 0.9rem;
 }
 
 .input-custom {
-    background: #1e293b !important;
-    border: 1px solid #334155 !important;
+    background: var(--panel-medio) !important;
+    border: 1px solid var(--borde-oscuro) !important;
     color: white !important;
     padding: 10px 14px !important;
     border-radius: 6px !important;
@@ -301,7 +301,7 @@ textarea {
 }
 
 .input-custom:focus {
-    border-color: #38bdf8 !important;
+    border-color: var(--celeste) !important;
     outline: none;
     box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
 }
@@ -313,7 +313,7 @@ textarea {
 }
 
 .btn-autorizar {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
+    background: linear-gradient(135deg, var(--peligro), var(--peligro-oscuro));
     color: white;
     border: none;
     padding: 12px 24px;
