@@ -35,13 +35,13 @@ function renderizarCatalogo(filtroTexto = '', filtroCat = '', filtroAta = '', so
         const indexReal = catalogo.findIndex(i => i.pn === item.pn);
         let claseBadge = item.stock > 1 ? 'badge-disp' : 'badge-bajo';
         let textoEstado = item.stock > 0 ? 'DISPONIBLE' : 'AGOTADO';
-        let imagenUrl = item.imagen || 'assets/actuador.jpg';
+        let imagenUrl = item.imagen || 'assets/img/actuador-tren.svg';
 
         contenedor.innerHTML += `
             <div class="tarjeta-componente" style="display: flex; flex-direction: column; justify-content: space-between; background: #1e293b; border: 1px solid #334155; border-radius: 8px; overflow: hidden; padding: 1rem;">
                 <div>
                     <div style="width: 100%; height: 140px; overflow: hidden; border-radius: 6px; margin-bottom: 1rem; background: #0f172a;">
-                        <img src="${imagenUrl}" alt="${item.nombre}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=400&q=80'">
+                        <img src="${imagenUrl}" alt="${item.nombre}" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="card-header-info">
                         <span class="ata-tag" style="background: #0284c7; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem;">${item.ata || 'ATA GENERAL'}</span>
