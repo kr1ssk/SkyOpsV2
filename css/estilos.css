@@ -501,3 +501,102 @@ footer {
     justify-content: flex-end;
     align-items: center;
 }
+
+/* ---------- Contacto ---------- */
+.layout-contacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.columna-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.subtitulo-grupo {
+    color: #38bdf8;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.espacio-abajo-chico { margin-bottom: 1.2rem; }
+
+.pista-campo {
+    font-size: 0.7rem;
+    color: #64748b;
+    display: block;
+    margin-top: 3px;
+}
+
+.fila-contador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.contador-caracteres {
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+.contador-pasado {
+    color: #ef4444;
+    font-weight: bold;
+}
+
+.check-amarillo {
+    width: 16px;
+    height: 16px;
+    accent-color: #eab308;
+}
+
+.nota-consentimiento {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    display: block;
+    margin-top: 4px;
+    padding-left: 26px;
+}
+
+.btn-enviar { padding: 10px 20px; }
+
+.badge-critico,
+.badge-programado,
+.badge-rutina {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.badge-critico    { background-color: #7f1d1d; color: #fca5a5; border: 1px solid #ef4444; }
+.badge-programado { background-color: #78350f; color: #fde047; border: 1px solid #eab308; }
+.badge-rutina     { background-color: #14532d; color: #86efac; border: 1px solid #22c55e; }
+
+.titulo-sub {
+    color: #ffffff;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.lista-datos {
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-left: 18px;
+    line-height: 1.5;
+}
+
+.parrafo-gris {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}

@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const actual = mensajeInput.value.length;
             contador.textContent = `${actual} / 500`;
             if (actual > 500) {
-                contador.style.color = '#ef4444';
+                contador.classList.add('contador-pasado');
             } else {
-                contador.style.color = '#94a3b8';
+                contador.classList.remove('contador-pasado');
             }
         });
     }
