@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     renderizarManifiestoEnDespacho();
     configurarFormularioDespacho();
-    
-    // Autorellenar matrícula si viene seleccionada desde la flota
+
+    // Si el usuario venia de la pagina de Flota, la matricula ya viene elegida
     const matSeleccionada = sessionStorage.getItem('skyops_aeronave_seleccionada');
     if (matSeleccionada) {
         const inputMat = document.getElementById('despacho-matricula');
@@ -18,21 +18,24 @@ function renderizarManifiestoEnDespacho() {
     tbody.innerHTML = '';
 
     if (manifiesto.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" class="celda-vacia">No hay componentes en el manifiesto activo. Agrega piezas desde el catálogo.</td></tr>`;
+        tbody.innerHTML = '<tr><td colspan="5" class="celda-vacia">' +
+                          'No hay componentes en el manifiesto activo. Agrega piezas desde el catalogo.' +
+                          '</td></tr>';
         return;
     }
 
-    manifiesto.forEach(item => {
-        tbody.innerHTML += `
-            <tr>
-                <td><strong>${item.guia}</strong></td>
-                <td>${item.nombre}</td>
-                <td>${item.ata}</td>
-                <td>${item.bodega}</td>
-                <td><strong class="texto-celeste">${item.cantidad}</strong></td>
-            </tr>
-        `;
-    });
+    for (let i = 0; i < manifiesto.length; i++) {
+        const item = manifiesto[i];
+
+        tbody.innerHTML +=
+            '<tr>' +
+                '<td><strong>' + item.guia + '</strong></td>' +
+                '<td>' + item.nombre + '</td>' +
+                '<td>' + item.ata + '</td>' +
+                '<td>' + item.bodega + '</td>' +
+                '<td><strong class="texto-celeste">' + item.cantidad + '</strong></td>' +
+            '</tr>';
+    }
 }
 
 // ---------------------------------------------------------------
