@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+  <rect width="400" height="240" fill="#1e293b"/>
+  <rect x="150" y="70" width="100" height="70" rx="6" fill="#16a34a"/>
+  <circle cx="200" cy="105" r="18" fill="#1e293b"/>
+  <text x="200" y="180" text-anchor="middle" fill="#f1f5f9" font-family="Arial" font-size="18" font-weight="bold">PN-32-4471</text>
+  <text x="200" y="204" text-anchor="middle" fill="#94a3b8" font-family="Arial" font-size="12">TREN DE ATERRIZAJE - ATA 32</text>
+</svg>

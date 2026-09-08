@@ -11,7 +11,7 @@ function obtenerStorage(clave) {
                     bodega: 'Bodega ANF - A03', 
                     ata: 'ESTRUCTURAS - ATA 27', 
                     stock: 4, 
-                    imagen: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80' 
+                    imagen: 'assets/img/actuador-superficie.svg' 
                 },
                 { 
                     nombre: 'Actuador de Tren Principal', 
@@ -20,7 +20,7 @@ function obtenerStorage(clave) {
                     bodega: 'Bodega SCL - A17', 
                     ata: 'TREN DE ATERRIZAJE - ATA 32', 
                     stock: 1, 
-                    imagen: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=400&q=80' 
+                    imagen: 'assets/img/actuador-tren.svg' 
                 },
                 { 
                     nombre: 'Álabe de Turbina (Fan Blade)', 
@@ -29,7 +29,7 @@ function obtenerStorage(clave) {
                     bodega: 'Bodega ANF - D11', 
                     ata: 'MOTORES - ATA 72', 
                     stock: 2, 
-                    imagen: 'https://images.unsplash.com/photo-1517976487132-f75aacfc9a59?auto=format&fit=crop&w=400&q=80' 
+                    imagen: 'assets/img/alabe-turbina.svg' 
                 }
             ];
             guardarStorage(clave, datos);

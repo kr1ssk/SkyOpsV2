@@ -33,11 +33,11 @@ function renderizarBitacora(filtroMat = '', filtroEstado = '') {
         return;
     }
 
-    filtrados.forEach((item, indexReal) => {
+    filtrados.forEach((item) => {
         let colorEstado = item.estado === 'COMPLETADO' ? '#16a34a' : '#eab308';
         
         let botonAccion = item.estado === 'EN CURSO' 
-            ? `<button onclick="resolverDespacho(${indexReal})" style="background: #16a34a; color: white; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: bold;">Resolver AOG</button>`
+            ? `<button onclick="resolverDespacho('${item.folio}')" style="background: #16a34a; color: white; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: bold;">Resolver AOG</button>`
             : `<span style="color: #64748b; font-size: 0.8rem;">Cerrado</span>`;
 
         tbody.innerHTML += `
@@ -55,19 +55,26 @@ function renderizarBitacora(filtroMat = '', filtroEstado = '') {
     });
 }
 
-function resolverDespacho(index) {
+// Se busca por folio y no por posicion: si hay un filtro activo, la posicion
+// dentro de la tabla no es la misma que dentro del arreglo completo.
+function resolverDespacho(folio) {
     let bitacora = obtenerStorage('skyops_bitacora');
-    
-    if (bitacora[index]) {
-        bitacora[index].estado = 'COMPLETADO';
-        guardarStorage('skyops_bitacora', bitacora);
-        
-        renderizarBitacora(
-            document.getElementById('filtro-mat').value,
-            document.getElementById('filtro-estado').value
-        );
-        
-        alert(`¡Incidente resuelto con éxito! El despacho ${bitacora[index].folio} figura como COMPLETADO y la aeronave ${bitacora[index].matricula} ha sido liberada a servicio.`);
+
+    for (let i = 0; i < bitacora.length; i++) {
+        if (bitacora[i].folio === folio) {
+            bitacora[i].estado = 'COMPLETADO';
+            guardarStorage('skyops_bitacora', bitacora);
+
+            renderizarBitacora(
+                document.getElementById('filtro-mat').value,
+                document.getElementById('filtro-estado').value
+            );
+
+            alert('Incidente resuelto. El despacho ' + bitacora[i].folio +
+                  ' figura como COMPLETADO y la aeronave ' + bitacora[i].matricula +
+                  ' fue liberada a servicio.');
+            return;
+        }
     }
 }
 
