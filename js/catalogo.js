@@ -144,6 +144,17 @@ function configurarFiltros() {
     if (selAta) selAta.addEventListener('change', actualizar);
     if (checkStock) checkStock.addEventListener('change', actualizar);
 
+    const btnRestaurar = document.getElementById('btn-restaurar-catalogo');
+    if (btnRestaurar) {
+        btnRestaurar.addEventListener('click', function () {
+            if (confirm('Esto vuelve a dejar el catalogo como estaba al principio. Continuar?')) {
+                localStorage.removeItem('skyops_catalogo');
+                renderizarCatalogo();
+                alert('Catalogo restaurado.');
+            }
+        });
+    }
+
     if (btnLimpiar) {
         btnLimpiar.addEventListener('click', function () {
             if (inputBuscar) inputBuscar.value = '';
@@ -196,6 +207,12 @@ function agregarAlManifiesto(index) {
 
 function borrarPieza(index) {
     let catalogo = obtenerStorage('skyops_catalogo');
+
+    // Antes no preguntaba nada y la pieza se perdia de una
+    if (!confirm('Seguro que quieres eliminar ' + catalogo[index].nombre + ' del catalogo?')) {
+        return;
+    }
+
     catalogo.splice(index, 1);
     guardarStorage('skyops_catalogo', catalogo);
 
