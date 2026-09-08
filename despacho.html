@@ -52,43 +52,60 @@
             </div>
         </div>
 
-        <form id="form-despacho" class="seccion-oscura">
+        <form id="form-despacho" class="seccion-oscura" novalidate>
             <h3 class="titulo-seccion">✈️ Autorización Operativa de Despacho</h3>
             <p class="subtitulo-seccion">Complete los datos de la aeronave y del ingeniero responsable para autorizar la salida.</p>
 
             <div class="grid-2 espacio-abajo">
-                <div>
-                    <label class="label-form">Matrícula de la Aeronave *</label>
-                    <input type="text" id="despacho-matricula" placeholder="Ej: CC-BFA" class="input-custom" required>
+                <div class="campo">
+                    <label class="label-form" for="despacho-matricula">Matrícula de la Aeronave *</label>
+                    <input type="text" id="despacho-matricula" list="lista-matriculas"
+                           placeholder="Ej: CC-BFA" class="input-custom"
+                           maxlength="6" autocomplete="off">
+                    <datalist id="lista-matriculas">
+                        <option value="CC-BFA">Airbus A320neo - LATAM</option>
+                        <option value="CC-AVE">Airbus A321 - LATAM</option>
+                        <option value="CC-AZS">Boeing 737-800 - Sky Airline</option>
+                        <option value="CC-DBC">Airbus A320 - JetSMART</option>
+                    </datalist>
+                    <span class="pista-campo">Formato chileno: CC- y tres letras. Al escribir aparecen sugerencias.</span>
+                    <span class="error-campo" id="error-matricula"></span>
                 </div>
-                <div>
-                    <label class="label-form">Puerta / Hangar de Destino *</label>
-                    <select id="despacho-destino" class="input-custom" required>
+                <div class="campo">
+                    <label class="label-form" for="despacho-destino">Puerta / Hangar de Destino *</label>
+                    <select id="despacho-destino" class="input-custom">
                         <option value="">Selecciona la ubicación...</option>
                         <option value="Puerta 9">Puerta 9</option>
                         <option value="Puerta 14">Puerta 14</option>
                         <option value="Hangar 1">Hangar 1</option>
                         <option value="Plataforma Remota 1">Plataforma Remota 1</option>
                     </select>
+                    <span class="error-campo" id="error-destino"></span>
                 </div>
             </div>
 
             <div class="grid-2 espacio-abajo">
-                <div>
-                    <label class="label-form">Ingeniero Responsable *</label>
-                    <input type="text" id="despacho-ingeniero" placeholder="Nombre y Apellido" class="input-custom" required>
+                <div class="campo">
+                    <label class="label-form" for="despacho-ingeniero">Ingeniero Responsable *</label>
+                    <input type="text" id="despacho-ingeniero" placeholder="Nombre y Apellido"
+                           class="input-custom" autocomplete="name">
+                    <span class="error-campo" id="error-ingeniero"></span>
                 </div>
-                <div>
-                    <label class="label-form">Número de Licencia *</label>
-                    <input type="text" id="despacho-licencia" placeholder="Ej: LE-3401" class="input-custom" required>
+                <div class="campo">
+                    <label class="label-form" for="despacho-licencia">Número de Licencia *</label>
+                    <input type="text" id="despacho-licencia" placeholder="Ej: LE-3401"
+                           class="input-custom" maxlength="7" autocomplete="off">
+                    <span class="pista-campo">Dos letras, un guion y cuatro números.</span>
+                    <span class="error-campo" id="error-licencia"></span>
                 </div>
             </div>
 
             <div class="caja-declaracion">
-                <label class="label-declaracion">
-                    <input type="checkbox" id="check-autorizacion" required class="check-grande">
+                <label class="label-declaracion" for="check-autorizacion">
+                    <input type="checkbox" id="check-autorizacion" class="check-grande">
                     Declaro que la información es correcta y asumo la responsabilidad técnica y operativa de este despacho AOG.
                 </label>
+                <span class="error-campo" id="error-autorizacion"></span>
             </div>
 
             <div class="acciones-form">
