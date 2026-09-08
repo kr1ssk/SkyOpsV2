@@ -34,55 +34,67 @@
         <div class="layout-contacto">
             
             <!-- Formulario de Solicitud -->
-            <form id="form-contacto" class="seccion-oscura sin-margen-abajo">
+            <form id="form-contacto" class="seccion-oscura sin-margen-abajo" novalidate>
                 <h3 class="titulo-seccion">Enviar una solicitud</h3>
                 <p class="subtitulo-seccion">Los campos marcados con * son obligatorios. La validación es la misma que en el Despacho AOG: mensajes claros, específicos y mostrados junto al campo que corresponde.</p>
 
                 <h4 class="subtitulo-grupo">Datos de contacto</h4>
                 
                 <div class="grid-2 espacio-abajo-chico">
-                    <div>
-                        <label class="label-form">Nombre y apellido *</label>
-                        <input type="text" id="nombre-contacto" placeholder="Ej: Cristian Rivera" class="input-custom" required>
+                    <div class="campo">
+                        <label class="label-form" for="nombre-contacto">Nombre y apellido *</label>
+                        <input type="text" id="nombre-contacto" placeholder="Ej: Cristian Rivera" class="input-custom" autocomplete="name">
+                        <span class="error-campo" id="error-nombre"></span>
                     </div>
-                    <div>
-                        <label class="label-form">Correo corporativo *</label>
-                        <input type="email" id="correo-contacto" placeholder="c.rivera@skyops.aero" class="input-custom" required>
+                    <div class="campo">
+                        <label class="label-form" for="correo-contacto">Correo corporativo *</label>
+                        <input type="email" id="correo-contacto" placeholder="c.rivera@skyops.aero" class="input-custom" autocomplete="email">
+                        <span class="error-campo" id="error-correo"></span>
                     </div>
                 </div>
 
                 <div class="grid-2 espacio-abajo-chico">
-                    <div>
-                        <label class="label-form">Aeropuerto base *</label>
-                        <input type="text" id="aeropuerto-base" placeholder="SCL" class="input-custom" required>
+                    <div class="campo">
+                        <label class="label-form" for="aeropuerto-base">Aeropuerto base *</label>
+                        <input type="text" id="aeropuerto-base" list="lista-aeropuertos" placeholder="SCL" class="input-custom" maxlength="4" autocomplete="off">
+                        <datalist id="lista-aeropuertos">
+                            <option value="SCL">Santiago</option>
+                            <option value="ANF">Antofagasta</option>
+                            <option value="CCP">Concepcion</option>
+                            <option value="PMC">Puerto Montt</option>
+                        </datalist>
                         <span class="pista-campo">Código IATA (3 letras) u OACI (4 letras).</span>
+                        <span class="error-campo" id="error-aeropuerto"></span>
                     </div>
-                    <div>
-                        <label class="label-form">Tipo de solicitud *</label>
-                        <select id="tipo-solicitud" class="input-custom" required>
+                    <div class="campo">
+                        <label class="label-form" for="tipo-solicitud">Tipo de solicitud *</label>
+                        <select id="tipo-solicitud" class="input-custom">
                             <option value="">Selecciona una opción...</option>
                             <option value="AOG Crítico">AOG Crítico (Inmediato)</option>
                             <option value="AOG Programado">AOG Programado (&lt; 2 horas)</option>
                             <option value="Rutina">Rutina / Stock (&lt; 24 horas)</option>
                         </select>
+                        <span class="error-campo" id="error-tipo"></span>
                     </div>
                 </div>
 
-                <div class="espacio-abajo-chico">
-                    <label class="label-form">Mensaje *</label>
-                    <textarea id="mensaje-contacto" placeholder="Describe la incidencia indicando matrícula, número de parte y qué ocurrió." rows="4" class="input-custom" required></textarea>
+                <div class="espacio-abajo-chico campo">
+                    <label class="label-form" for="mensaje-contacto">Mensaje *</label>
+                    <textarea id="mensaje-contacto" placeholder="Describe la incidencia indicando matrícula, número de parte y qué ocurrió." rows="4" class="input-custom"></textarea>
                     <div class="fila-contador">
                         <span class="pista-campo">Entre 20 y 500 caracteres.</span>
                         <span id="contador-caracteres" class="contador-caracteres">0 / 500</span>
                     </div>
+                    <span class="error-campo" id="error-mensaje"></span>
                 </div>
 
                 <div class="caja-declaracion">
                     <label class="label-declaracion">
-                        <input type="checkbox" id="check-autorizacion" required class="check-amarillo">
+                        <input type="checkbox" id="check-autorizacion" class="check-amarillo">
                         Autorizo que SkyOps me contacte por correo *
                     </label>
                     <span class="nota-consentimiento">Usaremos tus datos sólo para responder esta solicitud.</span>
+                    <span class="error-campo" id="error-consentimiento"></span>
                 </div>
 
                 <div class="acciones-form">
