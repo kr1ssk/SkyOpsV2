@@ -1,13 +1,54 @@
+/* ==========================================================
+   PALETA DEL SITIO
+   Todos los colores del proyecto salen de aqui. Si hay que
+   cambiar el look completo se cambia SOLO este bloque: como
+   el resto del CSS usa var(--nombre), el cambio se propaga
+   a las 8 paginas de una.
+   Ejemplo: cambiar --acento de azul a naranjo tine los
+   botones, los enlaces activos del menu y los titulos.
+   ========================================================== */
 :root {
-    --primario: #0f172a;
-    --acento: #0284c7;
-    --peligro: #ef4444;
-    --fondo: #f8fafc;
-    --texto: #334155;
-    --blanco: #ffffff;
-    --borde: #cbd5e1;
-}
+    /* Colores de marca */
+    --acento: #0284c7;          /* azul principal: botones y menu activo */
+    --acento-oscuro: #0369a1;   /* el mismo azul al pasar el mouse */
+    --celeste: #38bdf8;         /* azul claro: titulos y datos destacados */
 
+    /* Fondos */
+    --fondo: #f8fafc;           /* fondo general de la pagina */
+    --primario: #0f172a;        /* azul muy oscuro: cabecera y paneles */
+    --panel-negro: #090d16;     /* encabezado de las tablas oscuras */
+    --panel-medio: #1e293b;     /* cajas dentro de los paneles oscuros */
+    --gris-suave: #e2e8f0;      /* fondo del pie de pagina */
+    --blanco: #ffffff;
+
+    /* Textos */
+    --texto: #334155;           /* texto normal sobre fondo claro */
+    --texto-claro: #cbd5e1;     /* texto sobre fondo oscuro */
+    --texto-tenue: #94a3b8;     /* etiquetas y textos secundarios */
+    --texto-apagado: #64748b;   /* pistas y avisos poco importantes */
+    --texto-suave: #f1f5f9;     /* casi blanco, para datos en tablas */
+
+    /* Bordes */
+    --borde: #cbd5e1;           /* borde de campos sobre fondo claro */
+    --borde-oscuro: #334155;    /* borde dentro de los paneles oscuros */
+    --borde-input: #475569;     /* borde de los campos numericos */
+
+    /* Estados */
+    --peligro: #ef4444;         /* errores y boton de eliminar */
+    --peligro-oscuro: #dc2626;
+    --verde: #16a34a;           /* completado / disponible */
+    --verde-claro: #22c55e;
+    --amarillo: #eab308;        /* en curso / stock bajo */
+    --amarillo-oscuro: #ca8a04;
+
+    /* Insignias (fondo + texto de cada estado) */
+    --rojo-fondo: #7f1d1d;
+    --rojo-texto: #fca5a5;
+    --ambar-fondo: #78350f;
+    --ambar-texto: #fde047;
+    --verde-fondo: #14532d;
+    --verde-texto: #86efac;
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -34,7 +75,7 @@ header {
 
 .logo p {
     font-size: 0.8rem;
-    color: #94a3b8;
+    color: var(--texto-tenue);
 }
 
 nav {
@@ -45,7 +86,7 @@ nav {
 }
 
 nav a {
-    color: #cbd5e1;
+    color: var(--texto-claro);
     text-decoration: none;
     padding: 6px 12px;
     border-radius: 4px;
@@ -101,15 +142,15 @@ nav a.activo, nav a:hover {
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #e2e8f0;
+    background-color: var(--gris-suave);
     font-size: 0.85rem;
-    color: #475569;
+    color: var(--borde-input);
 }
 /* Aviso que aparece al llegar al catalogo desde la pagina de flota */
 .aviso-aeronave {
-    background-color: #78350f;
-    color: #fde047;
-    border-left: 4px solid #eab308;
+    background-color: var(--ambar-fondo);
+    color: var(--ambar-texto);
+    border-left: 4px solid var(--amarillo);
     padding: 12px 16px;
     border-radius: 4px;
     margin-top: 1.5rem;
@@ -135,7 +176,7 @@ footer {
 }
 
 .texto-secundario {
-    color: #94a3b8;
+    color: var(--texto-tenue);
     margin-top: 5px;
 }
 
@@ -148,7 +189,7 @@ footer {
 }
 
 .contador-listado {
-    color: #94a3b8;
+    color: var(--texto-tenue);
     margin-bottom: 1rem;
     font-size: 0.9rem;
 }
@@ -159,7 +200,7 @@ footer {
 }
 
 .label-form {
-    color: #94a3b8;
+    color: var(--texto-tenue);
     font-size: 0.8rem;
     display: block;
     margin-bottom: 5px;
@@ -170,7 +211,7 @@ footer {
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    color: #ffffff;
+    color: var(--blanco);
     font-size: 0.85rem;
     margin-top: 15px;
 }
@@ -184,7 +225,7 @@ footer {
 .check-aog {
     width: 16px;
     height: 16px;
-    accent-color: #ef4444;
+    accent-color: var(--peligro);
 }
 
 /* ---------- Tabla de flota ---------- */
@@ -208,15 +249,15 @@ footer {
 }
 
 .badge-aog {
-    background-color: #7f1d1d;
-    color: #fca5a5;
-    border: 1px solid #ef4444;
+    background-color: var(--rojo-fondo);
+    color: var(--rojo-texto);
+    border: 1px solid var(--peligro);
 }
 
 .badge-operativa {
-    background-color: #14532d;
-    color: #86efac;
-    border: 1px solid #22c55e;
+    background-color: var(--verde-fondo);
+    color: var(--verde-texto);
+    border: 1px solid var(--verde-claro);
 }
 
 .badge-aog .punto,
@@ -236,19 +277,19 @@ footer {
 }
 
 .texto-inactivo {
-    color: #64748b;
+    color: var(--texto-apagado);
     font-size: 0.85rem;
 }
 
 .celda-vacia {
     text-align: center;
-    color: #94a3b8;
+    color: var(--texto-tenue);
     padding: 1.5rem;
 }
 
 /* ---------- Catalogo de componentes ---------- */
 .contador-resultados {
-    color: #94a3b8;
+    color: var(--texto-tenue);
     margin: 1.5rem 0 1rem 0;
     font-size: 0.9rem;
 }
@@ -264,7 +305,7 @@ footer {
 .check-stock {
     width: 16px;
     height: 16px;
-    accent-color: #38bdf8;
+    accent-color: var(--celeste);
 }
 
 .imagen-componente {
@@ -273,7 +314,7 @@ footer {
     overflow: hidden;
     border-radius: 6px;
     margin-bottom: 1rem;
-    background-color: #0f172a;
+    background-color: var(--primario);
 }
 
 .imagen-componente img {
@@ -295,7 +336,7 @@ footer {
 }
 
 .sin-resultados {
-    color: #64748b;
+    color: var(--texto-apagado);
     grid-column: 1 / -1;
 }
 
@@ -313,19 +354,19 @@ footer {
 .espacio-abajo    { margin-bottom: 1.5rem; }
 .espacio-arriba   { margin-top: 2rem; }
 .columna-flexible { flex: 1; }
-.valor-blanco     { color: #ffffff; }
-.texto-celeste    { color: #38bdf8; }
-.texto-amarillo   { color: #eab308; }
-.texto-gris       { color: #94a3b8; }
-.titulo-simple    { color: #ffffff; font-size: 1.1rem; margin-bottom: 1rem; }
-.nota-chica       { color: #64748b; font-size: 0.75rem; margin-bottom: 1.5rem; line-height: 1.4; }
-.panel-claro      { background-color: #0f172a; border: 1px solid #334155; }
-.mensaje-vacio    { color: #64748b; padding: 1rem; }
+.valor-blanco     { color: var(--blanco); }
+.texto-celeste    { color: var(--celeste); }
+.texto-amarillo   { color: var(--amarillo); }
+.texto-gris       { color: var(--texto-tenue); }
+.titulo-simple    { color: var(--blanco); font-size: 1.1rem; margin-bottom: 1rem; }
+.nota-chica       { color: var(--texto-apagado); font-size: 0.75rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.panel-claro      { background-color: var(--primario); border: 1px solid var(--borde-oscuro); }
+.mensaje-vacio    { color: var(--texto-apagado); padding: 1rem; }
 
 /* ---------- Manifiesto ---------- */
 .badge-contador {
-    background-color: #eab308;
-    color: #1e293b;
+    background-color: var(--amarillo);
+    color: var(--panel-medio);
     padding: 1px 6px;
     border-radius: 10px;
     font-size: 0.75rem;
@@ -347,8 +388,8 @@ footer {
 }
 
 .linea-manifiesto {
-    background-color: #1e293b;
-    border: 1px solid #334155;
+    background-color: var(--panel-medio);
+    border: 1px solid var(--borde-oscuro);
     padding: 1rem;
     border-radius: 6px;
     display: flex;
@@ -357,9 +398,9 @@ footer {
     gap: 1rem;
 }
 
-.titulo-linea { color: #ffffff; font-size: 1rem; margin-bottom: 3px; }
-.dato-linea   { font-size: 0.75rem; color: #94a3b8; display: block; }
-.dato-bodega  { color: #38bdf8; margin-top: 3px; }
+.titulo-linea { color: var(--blanco); font-size: 1rem; margin-bottom: 3px; }
+.dato-linea   { font-size: 0.75rem; color: var(--texto-tenue); display: block; }
+.dato-bodega  { color: var(--celeste); margin-top: 3px; }
 
 .controles-linea {
     display: flex;
@@ -375,7 +416,7 @@ footer {
     gap: 0.8rem;
     margin: 1.2rem 0;
     font-size: 0.9rem;
-    color: #cbd5e1;
+    color: var(--texto-claro);
 }
 
 .fila-resumen {
@@ -384,7 +425,7 @@ footer {
 }
 
 .fila-total {
-    border-top: 1px solid #334155;
+    border-top: 1px solid var(--borde-oscuro);
     padding-top: 0.8rem;
     margin-top: 0.2rem;
 }
@@ -406,7 +447,7 @@ footer {
 }
 
 .lista-reglas {
-    color: #94a3b8;
+    color: var(--texto-tenue);
     font-size: 0.85rem;
     display: flex;
     flex-direction: column;
@@ -432,14 +473,14 @@ footer {
 .numero-kpi {
     font-size: 2rem;
     font-weight: bold;
-    color: #38bdf8;
+    color: var(--celeste);
 }
 
-.numero-verde    { color: #16a34a; }
-.numero-amarillo { color: #eab308; }
+.numero-verde    { color: var(--verde); }
+.numero-amarillo { color: var(--amarillo); }
 
 .etiqueta-kpi {
-    color: #94a3b8;
+    color: var(--texto-tenue);
     font-size: 0.8rem;
     text-transform: uppercase;
     margin-top: 5px;
@@ -454,19 +495,19 @@ footer {
 
 .badge-completado,
 .badge-encurso {
-    color: #ffffff;
+    color: var(--blanco);
     padding: 3px 8px;
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: bold;
 }
 
-.badge-completado { background-color: #16a34a; }
-.badge-encurso    { background-color: #eab308; color: #1e293b; }
+.badge-completado { background-color: var(--verde); }
+.badge-encurso    { background-color: var(--amarillo); color: var(--panel-medio); }
 
 .btn-resolver {
-    background-color: #16a34a;
-    color: #ffffff;
+    background-color: var(--verde);
+    color: var(--blanco);
     border: none;
     padding: 4px 10px;
     border-radius: 4px;
@@ -478,7 +519,7 @@ footer {
 /* ---------- Despacho ---------- */
 .caja-declaracion {
     margin: 1.5rem 0;
-    background-color: #1e293b;
+    background-color: var(--panel-medio);
     padding: 1rem;
     border-radius: 6px;
 }
@@ -488,14 +529,14 @@ footer {
     align-items: center;
     gap: 12px;
     cursor: pointer;
-    color: #cbd5e1;
+    color: var(--texto-claro);
     font-size: 0.9rem;
 }
 
 .check-grande {
     width: 18px;
     height: 18px;
-    accent-color: #38bdf8;
+    accent-color: var(--celeste);
 }
 
 .acciones-form {
@@ -520,7 +561,7 @@ footer {
 }
 
 .subtitulo-grupo {
-    color: #38bdf8;
+    color: var(--celeste);
     font-size: 0.95rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -531,7 +572,7 @@ footer {
 
 .pista-campo {
     font-size: 0.7rem;
-    color: #64748b;
+    color: var(--texto-apagado);
     display: block;
     margin-top: 3px;
 }
@@ -545,23 +586,23 @@ footer {
 
 .contador-caracteres {
     font-size: 0.7rem;
-    color: #94a3b8;
+    color: var(--texto-tenue);
 }
 
 .contador-pasado {
-    color: #ef4444;
+    color: var(--peligro);
     font-weight: bold;
 }
 
 .check-amarillo {
     width: 16px;
     height: 16px;
-    accent-color: #eab308;
+    accent-color: var(--amarillo);
 }
 
 .nota-consentimiento {
     font-size: 0.7rem;
-    color: #94a3b8;
+    color: var(--texto-tenue);
     display: block;
     margin-top: 4px;
     padding-left: 26px;
@@ -578,18 +619,18 @@ footer {
     font-weight: bold;
 }
 
-.badge-critico    { background-color: #7f1d1d; color: #fca5a5; border: 1px solid #ef4444; }
-.badge-programado { background-color: #78350f; color: #fde047; border: 1px solid #eab308; }
-.badge-rutina     { background-color: #14532d; color: #86efac; border: 1px solid #22c55e; }
+.badge-critico    { background-color: var(--rojo-fondo); color: var(--rojo-texto); border: 1px solid var(--peligro); }
+.badge-programado { background-color: var(--ambar-fondo); color: var(--ambar-texto); border: 1px solid var(--amarillo); }
+.badge-rutina     { background-color: var(--verde-fondo); color: var(--verde-texto); border: 1px solid var(--verde-claro); }
 
 .titulo-sub {
-    color: #ffffff;
+    color: var(--blanco);
     font-size: 0.95rem;
     margin-bottom: 0.8rem;
 }
 
 .lista-datos {
-    color: #cbd5e1;
+    color: var(--texto-claro);
     font-size: 0.85rem;
     display: flex;
     flex-direction: column;
@@ -599,7 +640,7 @@ footer {
 }
 
 .parrafo-gris {
-    color: #94a3b8;
+    color: var(--texto-tenue);
     font-size: 0.85rem;
     line-height: 1.5;
 }
@@ -771,7 +812,7 @@ footer {
     margin-top: 1rem;
     border-radius: 6px;
     overflow: hidden;
-    background-color: #0f172a;
+    background-color: var(--primario);
 }
 
 .marco-video iframe {
@@ -797,10 +838,10 @@ footer {
     margin-top: 4px;
     font-size: 0.75rem;
     font-weight: bold;
-    color: #ef4444;
+    color: var(--peligro);
 }
 
 /* Cuando el campo tiene error se le pinta el borde de rojo */
 .campo-con-error .input-custom {
-    border-color: #ef4444;
+    border-color: var(--peligro);
 }
