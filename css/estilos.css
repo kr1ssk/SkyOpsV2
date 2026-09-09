@@ -78,11 +78,22 @@ header {
     color: var(--texto-tenue);
 }
 
+/* El menu ahora es una lista <ul><li>, que es lo correcto: son varios
+   enlaces del mismo tipo. Se le quitan las vinetas y el margen que el
+   navegador le pone por defecto a cualquier lista. */
 nav {
     display: flex;
-    gap: 15px;
-    flex-wrap: nowrap;
     align-items: center;
+}
+
+.lista-menu {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
@@ -683,6 +694,10 @@ footer {
         width: 100%;
     }
 
+    .lista-menu {
+        justify-content: center;
+    }
+
     nav a {
         font-size: 0.85rem;
         padding: 5px 9px;
@@ -802,26 +817,29 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* El truco del padding-bottom mantiene la proporcion 16:9 del video
-   aunque cambie el ancho de la pantalla */
-.marco-video {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
-    margin-top: 1rem;
+/* ---------- Figura con el diagrama del sistema ----------
+   El SVG se escala solo al ancho del contenedor, asi que no hace falta
+   fijarle una altura: con max-width y height auto se mantiene la proporcion. */
+.figura-diagrama {
+    margin: 1rem 0 0 0;
+    padding: 1rem;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
     border-radius: 6px;
-    overflow: hidden;
-    background-color: var(--primario);
 }
 
-.marco-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.figura-diagrama img {
+    display: block;
     width: 100%;
-    height: 100%;
-    border: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+.figura-diagrama figcaption {
+    margin-top: 0.7rem;
+    font-size: 0.85rem;
+    color: var(--texto-apagado);
+    text-align: center;
 }
 
 /* ---------- Mensajes de error de los formularios ---------- */
@@ -844,4 +862,21 @@ footer {
 /* Cuando el campo tiene error se le pinta el borde de rojo */
 .campo-con-error .input-custom {
     border-color: var(--peligro);
+}
+
+/* ---------- Navegacion con el teclado ----------
+   Quien no usa mouse recorre la pagina con la tecla Tab. El navegador marca
+   el elemento enfocado con un contorno propio, pero sobre el azul oscuro de
+   la cabecera casi no se ve. Aqui se dibuja uno propio, celeste y separado
+   del borde, para que siempre se note donde esta parado el foco.
+   Se usa :focus-visible y no :focus para que el contorno aparezca al navegar
+   con el teclado y no cada vez que se hace clic con el mouse. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--celeste);
+    outline-offset: 2px;
+    border-radius: 4px;
 }
