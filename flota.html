@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flota atendida por SkyOps: aeronaves de las aerolineas cliente, su posicion en el aerodromo y si estan declaradas AOG.">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
     <title>SkyOps - Flota atendida y estado operativo</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/formularios.css">
@@ -13,25 +15,27 @@
             <h1>SkyOps</h1>
             <p>Logística y Recuperación AOG</p>
         </div>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="proyecto.html">Proyecto</a>
-            <a href="catalogo.html">Catálogo</a>
-            <a href="manifiesto.html">Manifiesto</a>
-            <a href="despacho.html">Despacho AOG</a>
-            <a href="bitacora.html">Bitácora</a>
-            <a href="flota.html" class="activo">Flota</a>
-            <a href="contacto.html">Contacto</a>
+        <nav aria-label="Menu principal">
+            <ul class="lista-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyecto.html">Proyecto</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="manifiesto.html">Manifiesto</a></li>
+                <li><a href="despacho.html">Despacho AOG</a></li>
+                <li><a href="bitacora.html">Bitácora</a></li>
+                <li><a href="flota.html" class="activo">Flota</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
     <main class="contenedor contenedor-ancho">
-        <div class="encabezado-pagina">
+        <section class="encabezado-pagina">
             <h2>Flota atendida y estado operativo</h2>
             <p class="texto-secundario">Listado de las aeronaves de las aerolíneas cliente, su posición actual en el aeródromo y si están declaradas AOG.</p>
-        </div>
+        </section>
 
-        <div class="seccion-oscura panel-filtros-flota">
+        <section class="seccion-oscura panel-filtros-flota">
             <div>
                 <label class="label-form">Aerolínea</label>
                 <select id="filtro-aerolinea" class="input-custom">
@@ -57,11 +61,11 @@
                     Sólo aeronaves AOG
                 </label>
             </div>
-        </div>
+        </section>
 
         <p id="contador-flota" class="contador-listado"></p>
 
-        <div class="seccion-oscura">
+        <section class="seccion-oscura">
             <div class="tabla-scroll">
                 <table class="tabla-despacho">
                     <thead>
@@ -80,7 +84,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>
