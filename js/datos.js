@@ -3,7 +3,7 @@
 // Si despues cambiamos los datos de aqui abajo, el navegador seguiria usando
 // los viejos porque ya los tenia guardados. Por eso llevamos un numero de
 // version: si no coincide, se borra lo guardado y se cargan los datos nuevos.
-const VERSION_DATOS = 2;
+const VERSION_DATOS = 3;
 let versionRevisada = false;
 
 function revisarVersionDatos() {
@@ -36,6 +36,7 @@ function obtenerStorage(clave) {
                     bodega: 'Bodega ANF - A03', 
                     ata: 'ESTRUCTURAS - ATA 27', 
                     stock: 4, 
+                    certificado: true, 
                     imagen: 'assets/img/actuador-superficie.svg' 
                 },
                 { 
@@ -45,6 +46,7 @@ function obtenerStorage(clave) {
                     bodega: 'Bodega SCL - A17', 
                     ata: 'TREN DE ATERRIZAJE - ATA 32', 
                     stock: 1, 
+                    certificado: true, 
                     imagen: 'assets/img/actuador-tren.svg' 
                 },
                 { 
@@ -54,6 +56,7 @@ function obtenerStorage(clave) {
                     bodega: 'Bodega ANF - D11', 
                     ata: 'MOTORES - ATA 72', 
                     stock: 2, 
+                    certificado: false, 
                     imagen: 'assets/img/alabe-turbina.svg' 
                 }
             ];

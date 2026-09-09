@@ -102,7 +102,7 @@ function renderizarCatalogo(filtroTexto, filtroCat, filtroAta, soloStock) {
                     '</div>' +
                     '<div class="badges-row">' +
                         '<span class="' + claseBadge + '">' + textoEstado + '</span>' +
-                        '<span class="badge-cert">8130-3</span>' +
+                        insigniaCertificado(item) +
                     '</div>' +
                     '<div class="specs-grid">' +
                         '<div class="spec-row"><span>Part Number</span><strong>' + item.pn + '</strong></div>' +
@@ -166,6 +166,15 @@ function configurarFiltros() {
     }
 }
 
+// La insignia 8130-3 solo se muestra si el componente trae el certificado de
+// aeronavegabilidad. Antes se pintaba siempre, aunque el dato dijera lo contrario.
+function insigniaCertificado(item) {
+    if (item.certificado === false) {
+        return '<span class="badge-sin-cert">Sin 8130-3</span>';
+    }
+    return '<span class="badge-cert">8130-3</span>';
+}
+
 function agregarAlManifiesto(index) {
     const catalogo = obtenerStorage('skyops_catalogo');
     const item = catalogo[index];
@@ -197,6 +206,7 @@ function agregarAlManifiesto(index) {
             bodega: item.bodega,
             cantidad: qty,
             stockMax: item.stock,
+            certificado: item.certificado !== false,
             destino: item.nombre + ' - ' + item.bodega
         });
     }

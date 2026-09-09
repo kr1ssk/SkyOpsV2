@@ -7,6 +7,8 @@ function renderizarManifiesto() {
     const badge = document.getElementById('badge-contador');
     const resLineas = document.getElementById('resumen-lineas');
     const resUnidades = document.getElementById('resumen-unidades');
+    const resConCert = document.getElementById('resumen-con-cert');
+    const resSinCert = document.getElementById('resumen-sin-cert');
     if (!contenedor) return;
 
     let manifiesto = obtenerStorage('skyops_manifiesto');
@@ -15,12 +17,26 @@ function renderizarManifiesto() {
     if (badge) badge.textContent = manifiesto.length;
     if (resLineas) resLineas.textContent = manifiesto.length;
 
-    // Sumamos las unidades recorriendo el arreglo con un for normal
+    // Sumamos las unidades y contamos los certificados 8130-3 en el mismo
+    // recorrido. Antes estos dos numeros estaban escritos a mano en el HTML,
+    // asi que decian siempre 1 y 0 aunque el manifiesto tuviera otra cosa.
     let totalUnidades = 0;
+    let conCertificado = 0;
+    let sinCertificado = 0;
+
     for (let i = 0; i < manifiesto.length; i++) {
         totalUnidades = totalUnidades + parseInt(manifiesto[i].cantidad || 1);
+
+        if (manifiesto[i].certificado === false) {
+            sinCertificado = sinCertificado + 1;
+        } else {
+            conCertificado = conCertificado + 1;
+        }
     }
+
     if (resUnidades) resUnidades.textContent = totalUnidades;
+    if (resConCert) resConCert.textContent = conCertificado;
+    if (resSinCert) resSinCert.textContent = sinCertificado;
 
     if (manifiesto.length === 0) {
         contenedor.innerHTML = '<p class="mensaje-vacio">El manifiesto esta vacio. ' +
@@ -39,6 +55,7 @@ function renderizarManifiesto() {
                         ' &nbsp;|&nbsp; S/N: ' + (item.sn || 'SN-0000') +
                         ' &nbsp;|&nbsp; ' + (item.ata || 'ATA') + '</span>' +
                     '<span class="dato-linea dato-bodega">' + (item.bodega || 'Bodega') + '</span>' +
+                    avisoCertificado(item) +
                 '</div>' +
                 '<div class="controles-linea">' +
                     '<label class="etiqueta-oculta" for="cant-' + i + '">Cantidad</label>' +
@@ -48,6 +65,15 @@ function renderizarManifiesto() {
                 '</div>' +
             '</div>';
     }
+}
+
+// Si la linea no trae certificado 8130-3, se avisa aqui mismo: esa pieza
+// necesita la autorizacion del Jefe de Mantenimiento antes del despacho.
+function avisoCertificado(item) {
+    if (item.certificado === false) {
+        return '<span class="badge-sin-cert">Sin 8130-3</span>';
+    }
+    return '';
 }
 
 function actualizarCantidad(index) {
