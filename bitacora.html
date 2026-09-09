@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitacora de despachos AOG de SkyOps: registro trazable de los despachos ejecutados para la auditoria de mantenimiento.">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
     <title>SkyOps - Bitácora de Despachos AOG</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/formularios.css">
@@ -13,25 +15,27 @@
             <h1>SkyOps</h1>
             <p>Logística y Recuperación AOG</p>
         </div>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="proyecto.html">Proyecto</a>
-            <a href="catalogo.html">Catálogo</a>
-            <a href="manifiesto.html">Manifiesto</a>
-            <a href="despacho.html">Despacho AOG</a>
-            <a href="bitacora.html" class="activo">Bitácora</a>
-            <a href="flota.html">Flota</a>
-            <a href="contacto.html">Contacto</a>
+        <nav aria-label="Menu principal">
+            <ul class="lista-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyecto.html">Proyecto</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="manifiesto.html">Manifiesto</a></li>
+                <li><a href="despacho.html">Despacho AOG</a></li>
+                <li><a href="bitacora.html" class="activo">Bitácora</a></li>
+                <li><a href="flota.html">Flota</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
     <main class="contenedor contenedor-ancho">
-        <div class="encabezado-pagina">
+        <section class="encabezado-pagina">
             <h2>Bitácora de despachos AOG</h2>
             <p class="texto-secundario">Equivalente funcional al historial de pedidos. Registro trazable de los despachos ya ejecutados, insumo directo para la auditoría de mantenimiento.</p>
-        </div>
+        </section>
 
-        <div class="grid-kpis grid-kpis">
+        <section class="grid-kpis grid-kpis">
             <article class="seccion-oscura tarjeta-kpi">
                 <span id="kpi-total" class="numero-kpi">0</span>
                 <p class="etiqueta-kpi">Despachos Listados</p>
@@ -48,9 +52,9 @@
                 <span id="kpi-cursos" class="numero-kpi numero-amarillo">0</span>
                 <p class="etiqueta-kpi">En Curso</p>
             </article>
-        </div>
+        </section>
 
-        <div class="seccion-oscura fila-filtros">
+        <section class="seccion-oscura fila-filtros">
             <div class="columna-flexible">
                 <label class="label-form">Filtrar por matrícula</label>
                 <input type="text" id="filtro-mat" placeholder="Ej: CC" class="input-custom">
@@ -63,9 +67,9 @@
                     <option value="EN CURSO">EN CURSO</option>
                 </select>
             </div>
-        </div>
+        </section>
 
-        <div class="seccion-oscura">
+        <section class="seccion-oscura">
             <h3 class="titulo-seccion">📋 Historial de Trazabilidad</h3>
             <p class="subtitulo-seccion">El tiempo de respuesta se mide desde que se autoriza el despacho hasta que el componente llega a la aeronave.</p>
             <div class="tabla-scroll">
@@ -87,7 +91,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>
