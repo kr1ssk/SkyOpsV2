@@ -187,6 +187,10 @@ textarea {
 .badge-bajo { background-color: var(--amarillo-oscuro); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
 .badge-cert { background-color: var(--acento); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
 
+/* Componente sin certificado 8130-3: se marca en amarillo para que se note
+   que necesita autorizacion del Jefe de Mantenimiento antes de despacharlo. */
+.badge-sin-cert { background-color: var(--amarillo); color: var(--panel-medio); padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
+
 .specs-grid {
     border-top: 1px solid var(--panel-medio);
     border-bottom: 1px solid var(--panel-medio);
